@@ -316,48 +316,38 @@
             <blockquote>
 <p><a href="http://huziketang.com/books/react/" target="_blank" rel="external">React.js 小书原系列地址</a></p>
 </blockquote>
-<p>1.React.js 解决什么问题？</p>
-<p>解决前端结构的复用性问题，抽离出独立的类，更好的完成组件化。</p>
+<h3 id="React-js-解决什么问题？"><a href="#React-js-解决什么问题？" class="headerlink" title="React.js 解决什么问题？"></a>React.js 解决什么问题？</h3><p>解决前端结构的复用性问题，抽离出独立的类，更好的完成组件化。</p>
 <p>减少手动的 DOM 操作。一旦状态发生变化，就自动构建一个新的 DOM 元素并替换原先的 DOM 元素。</p>
 <p><code>React</code> 中通过 Virtual-DOM 减少重排消耗。</p>
 <p>概括：一个组件有自己的显示形态（上面的 HTML 结构和内容）行为，组件的显示形态和行为可以由数据状态（<code>state</code>）和配置参数（<code>props</code>）共同决定。数据状态和配置参数的改变都会影响到这个组件的显示形态。当数据变化的时候，组件的显示需要更新。</p>
-<p>2.React.js 项目的基本结构</p>
-<p><code>import React, { Component } from &#39;react&#39;</code> - 这两个是必须要引用的</p>
+<h3 id="React-js-项目的基本结构"><a href="#React-js-项目的基本结构" class="headerlink" title="React.js 项目的基本结构"></a>React.js 项目的基本结构</h3><p><code>import React, { Component } from &#39;react&#39;</code> - 这两个是必须要引用的</p>
 <p><code>import ReactDOM from &#39;react-dom&#39;</code> - 负责把描述 UI 信息的 JavaScript 对象变为 DOM 对象， 并渲染到页面上</p>
 <p>JSX 其实就是 JavaScript 对象，所有的 DOM 元素其实都可以用 JavaScript 对象来表示。</p>
 <p>JSX 到页面经过了下面的过程：</p>
 <p><img src="http://ouu4a4ldi.bkt.clouddn.com/9D419ABE-2776-4649-8A19-BE60D436DAD0.png" alt="JSX到页面的过程"></p>
-<p>3.组件的 render 方法</p>
-<p>一个组件类必须实现一个 <code>render</code> 方法，而这个 <code>render</code> 方法必须返回一个 JSX 元素（只能有一个父元素）</p>
+<h3 id="组件的-render-方法"><a href="#组件的-render-方法" class="headerlink" title="组件的 render 方法"></a>组件的 render 方法</h3><p>一个组件类必须实现一个 <code>render</code> 方法，而这个 <code>render</code> 方法必须返回一个 JSX 元素（只能有一个父元素）</p>
 <p>render 方法中 <code>{}</code> 里面可以放任何的 js 代码。</p>
 <p>JSX 中的类名 <code>class</code> 要用 <code>className</code> 代替。<code>for</code> 属性要用 <code>htmlFor</code> 代替。因为它们都是关键字。</p>
 <p>自定义的组件都必须要用大写字母开头，普通的 HTML 标签都用小写字母开头。</p>
-<p>4.事件监听</p>
-<p>直接给元素加上类似 <code>onClick</code> 这样的属性（驼峰命名法），然后再绑定方法即可。<code>on*</code> 的事件监听只能作用在普通的 HTML 标签上。</p>
+<h3 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h3><p>直接给元素加上类似 <code>onClick</code> 这样的属性（驼峰命名法），然后再绑定方法即可。<code>on*</code> 的事件监听只能作用在普通的 HTML 标签上。</p>
 <p>事件监听函数会被自动传入 <code>event</code> 对象。</p>
 <p>为了获取事件中的 <code>this</code>，需要手动的将实例方法绑定（<code>bind</code>）到当前实例。一个事件中如果执行多个函数，需要用一个函数套起来，或者用逗号隔开。</p>
-<p>5.组件的 state 和 setState</p>
-<p><code>state</code> 用来存储可以变化的状态。</p>
+<h3 id="组件的-state-和-setState"><a href="#组件的-state-和-setState" class="headerlink" title="组件的 state 和 setState"></a>组件的 state 和 setState</h3><p><code>state</code> 用来存储可以变化的状态。</p>
 <p><code>setState</code> 接受对象参数，这个方法是父类 <code>Component</code> 提供的，调用的时候，React.js 会更新组件的状态 <code>state</code>，并且重新调用 <code>render</code> 方法，再把结果显示到页面上。传入对象的时候，可以只传入要变更的属性。</p>
 <p><code>setState</code> 接受函数参数。因为调用 <code>setState</code> 的时候，React.js 并不会马上修改 <code>state</code>。而是存入更新队列，最后再触发更新。如果传入函数作为参数，React.js 会把上一个 <code>setState</code> 的结果传入这个函数，然后返回一个更新的 <code>state</code> 对象。</p>
 <p>注意：更改组件的状态时，一定要用 React.js 提供的 <code>setState</code> 方法，否则 React.js 不知道你修改了组件的状态。</p>
 <p>React 会对 <code>setState</code> 进行优化，即使调用多次 <code>setState</code>，也只会渲染一次组件。</p>
-<p>6.配置组件的 props</p>
-<p>每个组件都可以接受一个 <code>props</code> 参数，作为对组件的配置。</p>
+<h3 id="配置组件的-props"><a href="#配置组件的-props" class="headerlink" title="配置组件的 props"></a>配置组件的 props</h3><p>每个组件都可以接受一个 <code>props</code> 参数，作为对组件的配置。</p>
 <p>使用组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 <code>props</code> 对象的键值。</p>
 <p>字符串、数字、对象、数组、函数等，都可以作为 <code>props</code> 传入组件</p>
 <p>默认配置 <code>defaultProps</code>，这个对象作为默认的 <code>props</code> 对象。</p>
 <p>不能在组件内部更改传入的 <code>props</code>，但是可以主动地重新渲染新的方式传入新的 <code>props</code>（父组件中重新渲染）。</p>
-<p>7.state 和 props</p>
-<p><code>state</code> 只可以在组件内部通过 <code>setState</code> 更新，会导致组件重新渲染。<br><code>props</code> 只能通过外部更改。</p>
+<h3 id="state-和-props"><a href="#state-和-props" class="headerlink" title="state 和 props"></a>state 和 props</h3><p><code>state</code> 只可以在组件内部通过 <code>setState</code> 更新，会导致组件重新渲染。<br><code>props</code> 只能通过外部更改。</p>
 <p><code>state</code> 是让组件控制自己的状态，<code>props</code> 是让外部对组件自己进行配置。</p>
 <p>尽量少用 <code>state</code>（更多的状态只会导致更难的管理），多用 <code>props</code>（高配置性）</p>
-<p>8.渲染列表数据</p>
-<p>如果在 <code>{}</code> 中放一个数组，React.js 会帮你把数组里面的元素一个个罗列并渲染出来。此时要为每个元素加上 <code>key</code> 属性作为唯一标识。</p>
-<p>9.处理用户输入</p>
-<p>React.js 中所有的状态都应该由 <code>state</code> 控制，如果输入控件（<code>&lt;input /&gt;</code> 等）设置了值，那么值不变，<code>value</code> 就不会变。所以要通过 <code>setState</code> 更新组件的内容。这些值被 React 控制的组件叫做受控组件。</p>
-<p>10.向父组件传递数据</p>
-<p>通过 <code>props</code> 设置回调函数，可以将子元素的数据传到父元素中。</p>
+<h3 id="渲染列表数据"><a href="#渲染列表数据" class="headerlink" title="渲染列表数据"></a>渲染列表数据</h3><p>如果在 <code>{}</code> 中放一个数组，React.js 会帮你把数组里面的元素一个个罗列并渲染出来。此时要为每个元素加上 <code>key</code> 属性作为唯一标识。</p>
+<h3 id="处理用户输入"><a href="#处理用户输入" class="headerlink" title="处理用户输入"></a>处理用户输入</h3><p>React.js 中所有的状态都应该由 <code>state</code> 控制，如果输入控件（<code>&lt;input /&gt;</code> 等）设置了值，那么值不变，<code>value</code> 就不会变。所以要通过 <code>setState</code> 更新组件的内容。这些值被 React 控制的组件叫做受控组件。</p>
+<h3 id="向父组件传递数据"><a href="#向父组件传递数据" class="headerlink" title="向父组件传递数据"></a>向父组件传递数据</h3><p>通过 <code>props</code> 设置回调函数，可以将子元素的数据传到父元素中。</p>
 
           
         
