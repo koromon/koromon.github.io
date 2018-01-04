@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/《React.js 小书》学习-Part2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/《React.js 小书》学习 - 理解 Redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -261,7 +261,147 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/03/《React.js 小书》学习-Part2/" itemprop="url">《React.js 小书》学习 - Part2</a></h1>
+                <a class="post-title-link" href="/2018/01/04/《React.js 小书》学习 - 理解 Redux/" itemprop="url">《React.js 小书》学习 - 理解 Redux</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T22:33:32+08:00">
+                2018-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="高阶组件"><a href="#高阶组件" class="headerlink" title="高阶组件"></a>高阶组件</h3><p>高阶组件是一个函数，传给它一个组件，返回一个新的组件（你传给它的组件作为子组件）。</p>
+<p>其实这就是为了组件之前的代码复用。把组件之间相同的逻辑抽离出来，放到高阶组件中进行复用。高阶组件内部的包装组件和被包装组件之间通过 <code>props</code> 传递数据。</p>
+<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p>组件树上某颗子树的全局变量，它的子组件可以访问这个变量，父组件无法访问。</p>
+<p>因为 context 的内容可以随意被接触也就可以随意被修改，所以很不安全。</p>
+<p>这个特性强烈建议不使用。建议使用第三方库管理组件状态</p>
+<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>一种前端“架构模式”。</p>
+<p>开发中，要尽量避免全局变量，否则每个模块都可以对共享数据进行操作，会导致无法预料的错误。但是不同的模块之间确实又需要共享数据。</p>
+<p>在 React.js 中。我们设置一个专门的函数负责数据的操作，所有的数据操作都要通过这个函数，而这个函数决定可以进行什么修改。这样在 debug 的时候我们可以立刻找出什么地方修改了共享数据。</p>
+<p>当监听到数据变化的时候，这个函数内部也应该主动重新渲染页面（观察者模式）。</p>
+<h3 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h3><p>一个函数的返回结果只依赖于它的参数（不受外部变量的影响），并且在执行过程中没有副作用（不会导致外部变量的改变）。同时会导致外部可观察的变化（页面刷新，DOM 变化，<code>console.log</code>），都属于副作用。</p>
+<p>所以纯函数就是只涉及计算数据，不会产生不可预料的行为，也不会影响外部。对于代码开发和维护非常友善。</p>
+<h3 id="共享结构的对象如何提升性能？"><a href="#共享结构的对象如何提升性能？" class="headerlink" title="共享结构的对象如何提升性能？"></a>共享结构的对象如何提升性能？</h3><p>每次更改状态的时候判断是哪些部分的数据发生改变，对应的只需要重新渲染该部分的组件即可。</p>
+<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>其实这个就是一个纯函数，不会影响外部环境。</p>
+<h3 id="如何创建一个-Redux"><a href="#如何创建一个-Redux" class="headerlink" title="如何创建一个 Redux"></a>如何创建一个 Redux</h3><p>首先，为了方便管理，我们统一创建一个函数（<code>dispatch</code>）用于管理数据，数据的更改要通过 <code>action</code> 声明，这样便于管理和调试。然后我们可以把获取初始数据的方法（<code>getState</code>）和管理函数（<code>dispatch</code>）合并到一个函数中（抽象出一个类，可以产生实例） 。</p>
+<p>有了统一管理数据的函数，但是此时更新数据后我们还需要手动渲染页面，所以我们要在 <code>dispatch</code> 中监听数据变化，一旦发生变化就重新渲染组件。</p>
+<p>为了使得这种监听方式更加通用，我们采取观察者模式。同时使得每个实例都有独立的监听函数。</p>
+<p>此时如果发生数据变动已经可以自动渲染了，但是只有一小部分数据改变的时候，全部组件都会进行渲染（性能问题），所以我们需要判断哪些数据发生了变动，只需要渲染对应部分即可。</p>
+<p>我们可以通过判断前后两次数据的内容来确认哪部分的数据发生了变化，这里需要通过浅复制的操作（因为是对象）来实现。每次发生数据变化，都要生成一个新的对象。渲染的时候如果前后两个对象相同，即证明没有发生变化，也就不用重新渲染这部分。</p>
+<p>接下来我们把初始化数据的部分也合并到管理数据的函数中。此时我们发现这个合并后的函数就是一个纯函数 <code>reducer</code>，它不会改变外部的数据，只会初始化和计算新的 <code>state</code>。</p>
+<p>最后，我们已经创建了一个独立的函数（类），只要传入不同的 <code>reducer</code>，就可以生成不同的 Redux。</p>
+<p>一个完整的流程： 定一个 reducer -&gt; 生成 store -&gt; 监听数据变化重新渲染页面 -&gt; 首次渲染页面 -&gt; 后面可以随意 dispatch 了，页面自动更新</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/《React.js 小书》学习 - 状态管理和生命周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feng Chenming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koromon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/03/《React.js 小书》学习 - 状态管理和生命周期/" itemprop="url">《React.js 小书》学习 - 状态管理和生命周期</a></h1>
         
 
         <div class="post-meta">
@@ -399,7 +539,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/02/《React.js 小书》学习-Part1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/02/《React.js 小书》学习 - 基本用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -418,7 +558,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/02/《React.js 小书》学习-Part1/" itemprop="url">《React.js 小书》学习 - Part1</a></h1>
+                <a class="post-title-link" href="/2018/01/02/《React.js 小书》学习 - 基本用法/" itemprop="url">《React.js 小书》学习 - 基本用法</a></h1>
         
 
         <div class="post-meta">
@@ -723,7 +863,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

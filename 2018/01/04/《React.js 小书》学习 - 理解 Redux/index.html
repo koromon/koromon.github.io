@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,blog," />
+  <meta name="keywords" content="React," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
-<meta name="keywords" content="hexo,blog">
+<meta name="description" content="高阶组件高阶组件是一个函数，传给它一个组件，返回一个新的组件（你传给它的组件作为子组件）。 其实这就是为了组件之前的代码复用。把组件之间相同的逻辑抽离出来，放到高阶组件中进行复用。高阶组件内部的包装组件和被包装组件之间通过 props 传递数据。 context组件树上某颗子树的全局变量，它的子组件可以访问这个变量，父组件无法访问。 因为 context 的内容可以随意被接触也就可以随意被修改，所">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo简单使用">
-<meta property="og:url" content="http://yoursite.com/2017/12/19/hexo简单使用/index.html">
+<meta property="og:title" content="《React.js 小书》学习 - 理解 Redux">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/《React.js 小书》学习 - 理解 Redux/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
+<meta property="og:description" content="高阶组件高阶组件是一个函数，传给它一个组件，返回一个新的组件（你传给它的组件作为子组件）。 其实这就是为了组件之前的代码复用。把组件之间相同的逻辑抽离出来，放到高阶组件中进行复用。高阶组件内部的包装组件和被包装组件之间通过 props 传递数据。 context组件树上某颗子树的全局变量，它的子组件可以访问这个变量，父组件无法访问。 因为 context 的内容可以随意被接触也就可以随意被修改，所">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-02T12:49:38.154Z">
+<meta property="og:updated_time" content="2018-01-04T14:37:40.417Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo简单使用">
-<meta name="twitter:description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
+<meta name="twitter:title" content="《React.js 小书》学习 - 理解 Redux">
+<meta name="twitter:description" content="高阶组件高阶组件是一个函数，传给它一个组件，返回一个新的组件（你传给它的组件作为子组件）。 其实这就是为了组件之前的代码复用。把组件之间相同的逻辑抽离出来，放到高阶组件中进行复用。高阶组件内部的包装组件和被包装组件之间通过 props 传递数据。 context组件树上某颗子树的全局变量，它的子组件可以访问这个变量，父组件无法访问。 因为 context 的内容可以随意被接触也就可以随意被修改，所">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/19/hexo简单使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/04/《React.js 小书》学习 - 理解 Redux/"/>
 
 
 
 
 
-  <title>hexo简单使用 | Koromon's Blog</title>
+  <title>《React.js 小书》学习 - 理解 Redux | Koromon's Blog</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/hexo简单使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/《React.js 小书》学习 - 理解 Redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo简单使用</h1>
+          <h1 class="post-title" itemprop="name headline">《React.js 小书》学习 - 理解 Redux</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T09:18:33+08:00">
-                2017-12-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T22:33:32+08:00">
+                2018-01-04
               </time>
             
 
@@ -315,24 +315,27 @@
       
 
       
-        <blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a>，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。</p>
-</blockquote>
-<h2 id="new-新建文章"><a href="#new-新建文章" class="headerlink" title="new - 新建文章"></a>new - 新建文章</h2><p><code>$ hexo new [layout] &lt;title&gt;</code></p>
-<p>按照 <code>layout</code> 设置的默认模板新建一篇文章。</p>
-<h2 id="server-本地预览"><a href="#server-本地预览" class="headerlink" title="server - 本地预览"></a>server - 本地预览</h2><p><code>$ hexo server</code></p>
-<p>启动服务器。默认情况下，访问网址为： <code>http://localhost:4000/</code>。这样就可以在本地看到部署后的效果了。</p>
-<h2 id="generate-生成资源"><a href="#generate-生成资源" class="headerlink" title="generate - 生成资源"></a>generate - 生成资源</h2><p><code>$ hexo generate</code></p>
-<p>生成静态文件，也就是生成最新的资源，一般在部署最新文章前都要先生成资源。而这个指令有两个选项</p>
-<ul>
-<li><code>-d, --deploy</code>    文件生成后立即部署网站，也就是不用自己再执行部署的代码了</li>
-<li><code>-w, --watch</code>    监视文件变动，也就是本地修改文章后会实时生成最新的资源</li>
-</ul>
-<h2 id="deploy-部署资源"><a href="#deploy-部署资源" class="headerlink" title="deploy - 部署资源"></a>deploy - 部署资源</h2><p><code>$ hexo deploy</code>(简写 <code>$ hexo d</code>)</p>
-<p>把网站部署到线上。这个指令有一个选项</p>
-<ul>
-<li><code>-g, --generate</code> 部署之前预先生成静态文件，如果执行这个选项就可以省略上面上面生成资源那个指令。</li>
-</ul>
+        <h3 id="高阶组件"><a href="#高阶组件" class="headerlink" title="高阶组件"></a>高阶组件</h3><p>高阶组件是一个函数，传给它一个组件，返回一个新的组件（你传给它的组件作为子组件）。</p>
+<p>其实这就是为了组件之前的代码复用。把组件之间相同的逻辑抽离出来，放到高阶组件中进行复用。高阶组件内部的包装组件和被包装组件之间通过 <code>props</code> 传递数据。</p>
+<h3 id="context"><a href="#context" class="headerlink" title="context"></a>context</h3><p>组件树上某颗子树的全局变量，它的子组件可以访问这个变量，父组件无法访问。</p>
+<p>因为 context 的内容可以随意被接触也就可以随意被修改，所以很不安全。</p>
+<p>这个特性强烈建议不使用。建议使用第三方库管理组件状态</p>
+<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>一种前端“架构模式”。</p>
+<p>开发中，要尽量避免全局变量，否则每个模块都可以对共享数据进行操作，会导致无法预料的错误。但是不同的模块之间确实又需要共享数据。</p>
+<p>在 React.js 中。我们设置一个专门的函数负责数据的操作，所有的数据操作都要通过这个函数，而这个函数决定可以进行什么修改。这样在 debug 的时候我们可以立刻找出什么地方修改了共享数据。</p>
+<p>当监听到数据变化的时候，这个函数内部也应该主动重新渲染页面（观察者模式）。</p>
+<h3 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h3><p>一个函数的返回结果只依赖于它的参数（不受外部变量的影响），并且在执行过程中没有副作用（不会导致外部变量的改变）。同时会导致外部可观察的变化（页面刷新，DOM 变化，<code>console.log</code>），都属于副作用。</p>
+<p>所以纯函数就是只涉及计算数据，不会产生不可预料的行为，也不会影响外部。对于代码开发和维护非常友善。</p>
+<h3 id="共享结构的对象如何提升性能？"><a href="#共享结构的对象如何提升性能？" class="headerlink" title="共享结构的对象如何提升性能？"></a>共享结构的对象如何提升性能？</h3><p>每次更改状态的时候判断是哪些部分的数据发生改变，对应的只需要重新渲染该部分的组件即可。</p>
+<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>其实这个就是一个纯函数，不会影响外部环境。</p>
+<h3 id="如何创建一个-Redux"><a href="#如何创建一个-Redux" class="headerlink" title="如何创建一个 Redux"></a>如何创建一个 Redux</h3><p>首先，为了方便管理，我们统一创建一个函数（<code>dispatch</code>）用于管理数据，数据的更改要通过 <code>action</code> 声明，这样便于管理和调试。然后我们可以把获取初始数据的方法（<code>getState</code>）和管理函数（<code>dispatch</code>）合并到一个函数中（抽象出一个类，可以产生实例） 。</p>
+<p>有了统一管理数据的函数，但是此时更新数据后我们还需要手动渲染页面，所以我们要在 <code>dispatch</code> 中监听数据变化，一旦发生变化就重新渲染组件。</p>
+<p>为了使得这种监听方式更加通用，我们采取观察者模式。同时使得每个实例都有独立的监听函数。</p>
+<p>此时如果发生数据变动已经可以自动渲染了，但是只有一小部分数据改变的时候，全部组件都会进行渲染（性能问题），所以我们需要判断哪些数据发生了变动，只需要渲染对应部分即可。</p>
+<p>我们可以通过判断前后两次数据的内容来确认哪部分的数据发生了变化，这里需要通过浅复制的操作（因为是对象）来实现。每次发生数据变化，都要生成一个新的对象。渲染的时候如果前后两个对象相同，即证明没有发生变化，也就不用重新渲染这部分。</p>
+<p>接下来我们把初始化数据的部分也合并到管理数据的函数中。此时我们发现这个合并后的函数就是一个纯函数 <code>reducer</code>，它不会改变外部的数据，只会初始化和计算新的 <code>state</code>。</p>
+<p>最后，我们已经创建了一个独立的函数（类），只要传入不同的 <code>reducer</code>，就可以生成不同的 Redux。</p>
+<p>一个完整的流程： 定一个 reducer -&gt; 生成 store -&gt; 监听数据变化重新渲染页面 -&gt; 首次渲染页面 -&gt; 后面可以随意 dispatch 了，页面自动更新</p>
 
       
     </div>
@@ -350,9 +353,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/React/" rel="tag"># React</a>
           
         </div>
       
@@ -365,15 +366,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/03/《React.js 小书》学习 - 状态管理和生命周期/" rel="next" title="《React.js 小书》学习 - 状态管理和生命周期">
+                <i class="fa fa-chevron-left"></i> 《React.js 小书》学习 - 状态管理和生命周期
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/02/《React.js 小书》学习 - 基本用法/" rel="prev" title="《React.js 小书》学习 - 基本用法">
-                《React.js 小书》学习 - 基本用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -496,7 +497,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#new-新建文章"><span class="nav-number">1.</span> <span class="nav-text">new - 新建文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-本地预览"><span class="nav-number">2.</span> <span class="nav-text">server - 本地预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generate-生成资源"><span class="nav-number">3.</span> <span class="nav-text">generate - 生成资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploy-部署资源"><span class="nav-number">4.</span> <span class="nav-text">deploy - 部署资源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶组件"><span class="nav-number">1.</span> <span class="nav-text">高阶组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#context"><span class="nav-number">2.</span> <span class="nav-text">context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux"><span class="nav-number">3.</span> <span class="nav-text">Redux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯函数"><span class="nav-number">4.</span> <span class="nav-text">纯函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共享结构的对象如何提升性能？"><span class="nav-number">5.</span> <span class="nav-text">共享结构的对象如何提升性能？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducer"><span class="nav-number">6.</span> <span class="nav-text">reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何创建一个-Redux"><span class="nav-number">7.</span> <span class="nav-text">如何创建一个 Redux</span></a></li></ol></div>
             
 
           </div>
