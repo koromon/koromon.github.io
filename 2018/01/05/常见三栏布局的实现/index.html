@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,blog," />
+  <meta name="keywords" content="CSS布局," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
-<meta name="keywords" content="hexo,blog">
+<meta name="description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法  在浮动元素的下方新增一个标签（block/inline-block 类型），然后该标签样式">
+<meta name="keywords" content="CSS布局">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo简单使用">
-<meta property="og:url" content="http://yoursite.com/2017/12/19/hexo简单使用/index.html">
+<meta property="og:title" content="常见三栏布局的实现">
+<meta property="og:url" content="http://yoursite.com/2018/01/05/常见三栏布局的实现/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
+<meta property="og:description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法  在浮动元素的下方新增一个标签（block/inline-block 类型），然后该标签样式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-02T12:49:38.154Z">
+<meta property="og:updated_time" content="2018-01-05T09:24:10.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo简单使用">
-<meta name="twitter:description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
+<meta name="twitter:title" content="常见三栏布局的实现">
+<meta name="twitter:description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法  在浮动元素的下方新增一个标签（block/inline-block 类型），然后该标签样式">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/19/hexo简单使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/05/常见三栏布局的实现/"/>
 
 
 
 
 
-  <title>hexo简单使用 | Koromon's Blog</title>
+  <title>常见三栏布局的实现 | Koromon's Blog</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/hexo简单使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/常见三栏布局的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo简单使用</h1>
+          <h1 class="post-title" itemprop="name headline">常见三栏布局的实现</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T09:18:33+08:00">
-                2017-12-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T11:18:45+08:00">
+                2018-01-05
               </time>
             
 
@@ -316,23 +316,51 @@
 
       
         <blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a>，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。</p>
+<p>实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。</p>
 </blockquote>
-<h2 id="new-新建文章"><a href="#new-新建文章" class="headerlink" title="new - 新建文章"></a>new - 新建文章</h2><p><code>$ hexo new [layout] &lt;title&gt;</code></p>
-<p>按照 <code>layout</code> 设置的默认模板新建一篇文章。</p>
-<h2 id="server-本地预览"><a href="#server-本地预览" class="headerlink" title="server - 本地预览"></a>server - 本地预览</h2><p><code>$ hexo server</code></p>
-<p>启动服务器。默认情况下，访问网址为： <code>http://localhost:4000/</code>。这样就可以在本地看到部署后的效果了。</p>
-<h2 id="generate-生成资源"><a href="#generate-生成资源" class="headerlink" title="generate - 生成资源"></a>generate - 生成资源</h2><p><code>$ hexo generate</code></p>
-<p>生成静态文件，也就是生成最新的资源，一般在部署最新文章前都要先生成资源。而这个指令有两个选项</p>
+<p><a href="http://js.jirengu.com/vifisavubi/1/edit?html,css,output" target="_blank" rel="external">这里使用</a>了五种方式来解决上面的问题。分别是下面几种：</p>
+<p>一、 浮动定位</p>
+<p>浮动定位兼容性好，但是设置这种布局需要注意调整 <code>html</code> 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。</p>
+<p>清除浮动有几种常见的方法</p>
 <ul>
-<li><code>-d, --deploy</code>    文件生成后立即部署网站，也就是不用自己再执行部署的代码了</li>
-<li><code>-w, --watch</code>    监视文件变动，也就是本地修改文章后会实时生成最新的资源</li>
+<li>在浮动元素的下方新增一个标签（<code>block/inline-block</code> 类型），然后该标签样式中使用 <code>clear:both</code>，因为要增加额外的元素，不推荐使用</li>
+<li>浮动元素的父元素设置 <code>overflow:auto;</code> 或者 <code>overflow:hidden;</code>（这个会导致超出的元素隐藏）</li>
+<li><p>使用伪元素,只要给浮动元素的父元素添加相应的类名即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.clearfix:after &#123;</div><div class="line">　content: &apos;&apos;;</div><div class="line">　height: 0;</div><div class="line">　line-height: 0; /*或 overflow:hidden*/</div><div class="line">　display: block;</div><div class="line">　visibility: hidden;</div><div class="line">　clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>双伪元素，和上面的类似，但是写的属性不用那么多。推荐使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.clearfix:before,</div><div class="line">.clearfix:after &#123;</div><div class="line">	content: &apos;&apos;;</div><div class="line">	display: table;</div><div class="line">&#125;</div><div class="line">.clearfix:after &#123;</div><div class="line">	clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="deploy-部署资源"><a href="#deploy-部署资源" class="headerlink" title="deploy - 部署资源"></a>deploy - 部署资源</h2><p><code>$ hexo deploy</code>(简写 <code>$ hexo d</code>)</p>
-<p>把网站部署到线上。这个指令有一个选项</p>
-<ul>
-<li><code>-g, --generate</code> 部署之前预先生成静态文件，如果执行这个选项就可以省略上面上面生成资源那个指令。</li>
-</ul>
+<p>二、 绝对定位</p>
+<p>绝对定位不需要特意调整 <code>html</code> 中的元素结构，但是同样会导致元素脱离文档流。需要注意对布局的影响。</p>
+<p>三、 Flexbox</p>
+<p>CSS3 中新增的布局样式，在目前来说，兼容性已经比较好了，尤其是移动端基本算是全部机型兼容了。Flexbox 布局很方便，要熟悉常见的属性，有助于提升开发效率。<a href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html" target="_blank" rel="external">用法可以参考这里 - 理解Flexbox：你需要知道的一切</a>。</p>
+<p>四、 table 布局</p>
+<p>兼容性很好，而且它有个特性，就是强制每行中的每列都会等高，但是我再实际开发中比较少用到这种布局。在某些情况下这种布局也是一种很好解决方案。<a href="https://segmentfault.com/a/1190000007007885" target="_blank" rel="external">table布局的简单介绍</a></p>
+<p>五、 Grid 布局</p>
+<p>Grid 作为一种新的布局方式，兼容性上还不是很好，但是它把页面整体看做一个网格，使得我们可以随意摆放元素的位置。这种布局我在开发中还没用过，不过了解一下还是不错的。<a href="https://juejin.im/entry/5a23510f6fb9a0452a3c239f" target="_blank" rel="external">Grid 布局的简单介绍</a></p>
+<p>综上所述，从兼容性和便利性的角度来说，Flexbox 是一种比较完美的布局方式。</p>
+<hr>
+<blockquote>
+<p>接下来我们改一下布局要求：实现一个三栏布局，高度不定，中间宽度自适应，左右定宽的页面布局。</p>
+</blockquote>
+<p>一、 浮动定位，此时父元素的高度只会根据中间元素的高度固定，而浮动的左右两个元素因为脱离的文档流，无法获取父元素高度。无法实现</p>
+<p>二、 绝对定位，此时三个元素都脱离文档流，父元素无法获取高度。无法实现</p>
+<p>三、 Flexbox，左右两列会随着中间的高度变化而变化，可以实现。</p>
+<p>四、 table 布局，因为 table 会强制同行的每列等高，所以可以实现。</p>
+<p>五、 Grid 布局也可以实现。</p>
+<p><a href="http://js.jirengu.com/zitiseracu/4/edit?html,css,output" target="_blank" rel="external">效果点此查看</a></p>
+<hr>
+<blockquote>
+<p>接下来我们再改一下布局要求：实现一个三栏布局，总高度固定，上下高度固定，中间自适应。</p>
+</blockquote>
+<p>一、 浮动定位，无法实现</p>
+<p>二、 绝对定位，可以实现。</p>
+<p>三、 Flexbox，可以实现。</p>
+<p>四、 table 布局，可以实现。</p>
+<p>五、 Grid 布局，可以实现。</p>
+<p><a href="http://js.jirengu.com/newimiqeyu/1/edit?html,css,output" target="_blank" rel="external">效果点此查看</a></p>
 
       
     </div>
@@ -350,9 +378,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/CSS布局/" rel="tag"># CSS布局</a>
           
         </div>
       
@@ -365,15 +391,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/04/《React.js 小书》学习 - 理解 Redux/" rel="next" title="《React.js 小书》学习 - 理解 Redux">
+                <i class="fa fa-chevron-left"></i> 《React.js 小书》学习 - 理解 Redux
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/02/《React.js 小书》学习 - 基本用法/" rel="prev" title="《React.js 小书》学习 - 基本用法">
-                《React.js 小书》学习 - 基本用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -423,17 +449,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -486,22 +503,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#new-新建文章"><span class="nav-number">1.</span> <span class="nav-text">new - 新建文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-本地预览"><span class="nav-number">2.</span> <span class="nav-text">server - 本地预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generate-生成资源"><span class="nav-number">3.</span> <span class="nav-text">generate - 生成资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploy-部署资源"><span class="nav-number">4.</span> <span class="nav-text">deploy - 部署资源</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
