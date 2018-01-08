@@ -242,6 +242,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/CSS圣杯布局和双飞翼布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feng Chenming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koromon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/08/CSS圣杯布局和双飞翼布局/" itemprop="url">CSS圣杯布局和双飞翼布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T15:18:42+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。</p>
+<h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><h3 id="建立基本框架"><a href="#建立基本框架" class="headerlink" title="建立基本框架"></a>建立基本框架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// HTML </div><div class="line">&lt;div class=&quot;header&quot;&gt;</div><div class="line">  header</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;center column&quot;&gt;contianer-center&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;left column&quot;&gt;contianer-left&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;right column&quot;&gt;contianer-right&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;footer&quot;&gt;</div><div class="line">  footer</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">// CSS 样式</div><div class="line">.container &#123;</div><div class="line">  background: red;</div><div class="line">  padding-left: 200px;</div><div class="line">  padding-right: 150px;</div><div class="line">  .column &#123;</div><div class="line">    background: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们先建立一个简单的结构。从下图可以看到，中间部分两边红色的地方就是 <code>padding</code> 撑开的区域。</p>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.08.48.png" alt="建立框架"></p>
+<h3 id="调整三栏的样式"><a href="#调整三栏的样式" class="headerlink" title="调整三栏的样式"></a>调整三栏的样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.center &#123;</div><div class="line">  width: 100%; // 这个宽度是相对于父元素 container 的宽度</div><div class="line">&#125;</div><div class="line">.left &#123;</div><div class="line">  width: 200px;</div><div class="line">  background: blue;</div><div class="line">&#125;</div><div class="line">.right &#123;</div><div class="line">  width: 150px;</div><div class="line">  background: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们给三栏分别设置宽度（宽度就是之前设置的 <code>padding</code>），然后设置浮动，最后要给 <code>.footer</code> 清除浮动，防止它向上移动至 <code>.header</code> 下方。</p>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.20.10.png" alt="给三栏设置样式"></p>
+<p>此时可以看到，因为 <code>.center</code> 已经占满了一排，所以 <code>.left</code> 和 <code>.right</code> 被挤到了下面一排。而因为 <code>.container</code> 的子元素都是浮动的，导致它没有高度，所以背景色也看不到了。</p>
+<h3 id="把左侧栏放上去"><a href="#把左侧栏放上去" class="headerlink" title="把左侧栏放上去"></a>把左侧栏放上去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.left &#123;</div><div class="line">  ...</div><div class="line">  margin-left: -100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里我们要用到负外边距这个属性，我们把 <code>.left</code> 的外边距设置为 <code>margin-left: -100%;</code>，因为第二排的 <code>padding-left</code> 只有 <code>200px</code> 的距离，所以只要 <code>margin-left</code> 大于等于这个距离，<code>.left</code> 元素就会往上移。随后 <code>.right</code> 元素会往左移动，代替 <code>.left</code> 的位置。</p>
+<p><code>margin-left: -200px;</code>的时候<br><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.45.56.png" alt=""></p>
+<p><code>margin-left: -100%;</code>的时候<br><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.46.32.png" alt=""></p>
+<p>此时给 <code>.left</code> 设定一个相对定位，再设置 <code>left</code> 向左偏移 <code>200px</code> 即可；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.left &#123;</div><div class="line">  ...</div><div class="line">  position: relative;</div><div class="line">  left: -200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.50.07.png" alt=""></p>
+<h3 id="把右侧栏放上去"><a href="#把右侧栏放上去" class="headerlink" title="把右侧栏放上去"></a>把右侧栏放上去</h3><p>同左侧栏一样，通过下面的样式，可以把右侧栏也放上去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.right &#123;</div><div class="line">  ...</div><div class="line">  position: relative;</div><div class="line">  margin-left: -150px;</div><div class="line">  right: -150px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此时也有一种简单的写法，设置 <code>.right</code> 的负外边距。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.right &#123;</div><div class="line">  ...</div><div class="line">  margin-right: -150px; // 大于 .right 元素的宽度即可</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为 <code>.right</code> 创建了 BFC，所以其父元素的宽度等于 <code>.right</code> 的水平属性值之和，即外边距 + 内边距 + 边框宽度 + 宽度 = 父元素宽度。所以当 <code>.right</code> 的负外边距大于 <code>150px</code> 的时候，其父元素的宽度为 0，也就会挤上去第一排。而又因为它左边已经有另外一个浮动元素 <code>.center</code> 占位了，所以 <code>.right</code> 不会再往左偏移。</p>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%886.13.25.png" alt=""></p>
+<p>此时可以发现圣杯布局已经完成了。</p>
+<h3 id="设置最小宽度"><a href="#设置最小宽度" class="headerlink" title="设置最小宽度"></a>设置最小宽度</h3><p>如果我们缩小浏览器宽度，发现布局会错乱。</p>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%886.13.38.png" alt=""></p>
+<p>我们需要设置 <code>.container</code> 的最小宽度，中间栏目的宽度必须保证最小 <code>200px</code>，因为 <code>.left</code> 是通过 <code>margin-left: -100%;</code> 来负边距移动的，这个父元素宽度也就是 <code>.center</code> 的 <code>width</code>，如果小于 <code>200px</code> 会导致 <code>.left</code> 无法挤上去。所以最终的最小宽度值为 <code>200px + 200px + 150px = 550px</code>。最后我们给 <code>body</code>（或者为它们的父元素） 添加上 <code>min-width: 550px</code> 即可。</p>
+<p>完整代码：<a href="https://jsfiddle.net/77tLm944/" target="_blank" rel="external">https://jsfiddle.net/77tLm944/</a></p>
+<h2 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h2><h3 id="搭建框架"><a href="#搭建框架" class="headerlink" title="搭建框架"></a>搭建框架</h3><p>和圣杯布局一样，设置三个栏目为浮动元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">// HTML</div><div class="line">&lt;div class=&quot;header&quot;&gt;</div><div class="line">  header</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;main&quot;&gt;我是主面板&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;sub&quot;&gt;我是侧栏&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;extra&quot;&gt;我也是侧栏&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div class=&quot;footer&quot;&gt;</div><div class="line">  footer</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">// CSS</div><div class="line">.main,</div><div class="line">.sub,</div><div class="line">.extra &#123;</div><div class="line">  float: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.main &#123;</div><div class="line">  background: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.sub &#123;</div><div class="line">  background: green;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.extra &#123;</div><div class="line">  background: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%887.08.21.png" alt=""></p>
+<h3 id="设置三栏样式"><a href="#设置三栏样式" class="headerlink" title="设置三栏样式"></a>设置三栏样式</h3><p>给主栏目设置 100% 宽度，其他两栏设置宽度后利用负边距分别挤上去第一排（原理和圣杯布局的一样）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.main &#123;</div><div class="line">  ...</div><div class="line">  width: 100%;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.sub &#123;</div><div class="line">  ...</div><div class="line">  width: 200px;</div><div class="line">  margin-left: -100%;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.extra &#123;</div><div class="line">  ...</div><div class="line">  width: 150px;</div><div class="line">  margin-left: -150px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%887.11.40.png" alt=""></p>
+<p>此时我们发现主栏的文字会被遮挡，因为此时侧栏只是单纯的覆盖在主栏上，没有做其他处理。此时为了让主栏的内容不被遮挡，我们可以考虑再在主栏里面放置一个元素标签。</p>
+<h3 id="设置主栏样式"><a href="#设置主栏样式" class="headerlink" title="设置主栏样式"></a>设置主栏样式</h3><p>在主栏内部再新增一个容器，然后设置外边距。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;main&quot;&gt;</div><div class="line">  &lt;div class=&quot;main-wrapper&quot;&gt;我是主栏内容我是主栏内容我是主栏内容我是主栏内容我是主栏内容我是主栏内容我是主栏内容我是主栏内容我是主栏内容我是主栏内容我是主栏内容</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">.main-wrapper &#123;</div><div class="line">  margin-left: 200px;</div><div class="line">  margin-right: 150px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%888.32.22.png" alt=""></p>
+<p>完整代码：<a href="https://jsfiddle.net/mLs0qve9/" target="_blank" rel="external">https://jsfiddle.net/mLs0qve9/</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><p>相同点</p>
+<ul>
+<li>这两种布局都实现了先加载主栏的内容</li>
+<li>都使用了浮动布局，兼容性高</li>
+<li>主栏宽度都设置 <code>100%</code></li>
+</ul>
+</li>
+<li><p>不同点</p>
+<ul>
+<li>圣杯布局使用内边距预留两侧栏空间，双飞翼布局给主栏里面的父元素设置外边距预留两侧栏空间</li>
+<li>圣杯布局要设置最小宽度避免布局错乱。相对而言，双飞翼布局则不用太注意这点，只要页面宽度大于两侧栏宽度之和即可。</li>
+<li>圣杯布局要设置相对定位，在设置 <code>left/right</code> 值，双飞翼布局不需要。</li>
+</ul>
+</li>
+</ul>
+<p>通过了解这两种布局方式，我觉得还是双飞翼布局的思路相对容易理解，并且样式也比较简洁。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
+<li><a href="https://segmentfault.com/a/1190000004524159" target="_blank" rel="external">《关于「圣杯布局」》</a></li>
+<li><a href="http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html" target="_blank" rel="external">CSS布局奇淫巧计之-强大的负边距</a></li>
+<li><a href="http://www.cnblogs.com/langzs/archive/2013/01/27/taobaoshuangfeiyi.html" target="_blank" rel="external">CSS布局之–淘宝双飞翼布局</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/常见三栏布局的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -322,7 +500,7 @@
 <p>清除浮动有几种常见的方法</p>
 <ul>
 <li>在浮动元素的下方新增一个标签（<code>block/inline-block</code> 类型），然后该标签样式中使用 <code>clear:both</code>，因为要增加额外的元素，不推荐使用</li>
-<li>浮动元素的父元素设置 <code>overflow:auto;</code> 或者 <code>overflow:hidden;</code>（这个会导致超出的元素隐藏）</li>
+<li>浮动元素的父元素设置 <code>overflow:auto;</code>（这个可能会产生滚动条） 或者 <code>overflow:hidden;</code>（这个会导致超出的元素隐藏）</li>
 <li><p>使用伪元素,只要给浮动元素的父元素添加相应的类名即可</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.clearfix:after &#123;</div><div class="line">　content: &apos;&apos;;</div><div class="line">　height: 0;</div><div class="line">　line-height: 0; /*或 overflow:hidden*/</div><div class="line">　display: block;</div><div class="line">　visibility: hidden;</div><div class="line">　clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -343,7 +521,7 @@
 <blockquote>
 <p>接下来我们改一下布局要求：实现一个三栏布局，高度不定，中间宽度自适应，左右定宽的页面布局。</p>
 </blockquote>
-<p>一、 浮动定位，此时父元素的高度只会根据中间元素的高度固定，而浮动的左右两个元素因为脱离的文档流，无法获取父元素高度。无法实现</p>
+<p>一、 浮动定位，此时父元素的高度只会根据中间元素的高度固定，而浮动的左右两个元素因为脱离的文档流，无法获取父元素高度。此时两边的高度无法跟随父元素。</p>
 <p>二、 绝对定位，此时三个元素都脱离文档流，父元素无法获取高度。无法实现</p>
 <p>三、 Flexbox，左右两列会随着中间的高度变化而变化，可以实现。</p>
 <p>四、 table 布局，因为 table 会强制同行的每列等高，所以可以实现。</p>
@@ -1028,7 +1206,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
