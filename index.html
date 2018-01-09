@@ -242,6 +242,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/09/CSS盒模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feng Chenming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koromon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/09/CSS盒模型/" itemprop="url">CSS盒模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-09T17:14:39+08:00">
+                2018-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>盒模型指定元素如何显示以及（在某种程度上）如何交互。页面上的每个元素被看做一个矩形框（也称为元素框），这个框由元素的内容（Content）、内边距（Padding）、边框（Border）和外边距（Margin）组成。示意图如下：</p>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/box-model.gif" alt=""></p>
+<p>在盒模型中，外边距可以为负值，但是内边距和边框不能为负值。而盒模型又分为两种模型。</p>
+<h3 id="标准模型"><a href="#标准模型" class="headerlink" title="标准模型"></a>标准模型</h3><p>在标准模型中，CSS 中的 <code>width</code> 和 <code>height</code> 指的是内容区域的宽度和高度。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。示意图如下：</p>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/CSS%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B.png" alt="盒模型"></p>
+<h3 id="IE-模型"><a href="#IE-模型" class="headerlink" title="IE 模型"></a>IE 模型</h3><p>但是在 IE 盒模型（IE 早期浏览器）中，CSS 中的 <code>width</code> 和 <code>height</code> 指的是内容区域、内边距和变宽的宽度总和。示意图如下：</p>
+<p><img src="http://ouu4a4ldi.bkt.clouddn.com/CSSIE%E6%A8%A1%E5%9E%8B.png" alt="IE模型"></p>
+<h3 id="设置盒模型"><a href="#设置盒模型" class="headerlink" title="设置盒模型"></a>设置盒模型</h3><p>CSS3 中 <code>box-sizing</code> 属性可以定义使用哪种盒模型。</p>
+<p><code>box-sizing:content-box;</code> 使用标准模型</p>
+<p><code>box-sizing:border-box;</code> 使用 IE 模型</p>
+<h3 id="JS-如何获取盒模型的宽高"><a href="#JS-如何获取盒模型的宽高" class="headerlink" title="JS 如何获取盒模型的宽高"></a>JS 如何获取盒模型的宽高</h3><ul>
+<li>对于内联样式，可以通过： <code>dom.style.width/height</code></li>
+<li>渲染后的节点样式，可以通过：<code>dom.currentStyle.width/height</code>（只有IE支持）</li>
+<li>渲染后的节点式，可以通过： <code>window.getComputedStyle(dom).width/height</code> （高级浏览器）</li>
+<li>渲染后的节点式，可以通过： <code>dom.getBoundingClientRect().width/height</code> （返回一个对象，包含元素宽/高，以及相对于视口左上角的 top/left/right/bottom）</li>
+</ul>
+<h3 id="外边距叠加"><a href="#外边距叠加" class="headerlink" title="外边距叠加"></a>外边距叠加</h3><p>当两个或更多垂直外边距相遇的时候，它们将形成一个外边距。这个外边距的高度等于两个发生叠加的外边距的高度中的较大者。</p>
+<ul>
+<li>常见的外边距叠加情形<ul>
+<li>上下两个元素，第一个元素的底部外边距和第二个元素的顶部外边距叠加</li>
+<li>当一个元素包含在另一个元素中（另一个元素没有设置内边距或者边框的时候）</li>
+<li>一个空元素（没有设置内边距或者边框的时候），它本身的顶部和底部边距也会发生叠加。如果这个外边距继续和其他元素的外边距相遇，也会发生叠加。</li>
+</ul>
+</li>
+</ul>
+<h3 id="块级格式化上下文（Block-Formatting-Contexts）"><a href="#块级格式化上下文（Block-Formatting-Contexts）" class="headerlink" title="块级格式化上下文（Block Formatting Contexts）"></a>块级格式化上下文（Block Formatting Contexts）</h3><p>从样式上看，具有 BFC 的元素与普通的容器没有什么区别，但是从功能上，具有 BFC 的元素可以看作是隔离了的独立容器，他有一些普通容器没有的特性：</p>
+<ul>
+<li>独立的容器，不会和外部容器相互影响（内部元素不会在布局上影响到外面的元素）</li>
+<li>垂直方向不会发生重叠</li>
+<li>不会与浮动元素重叠</li>
+<li>可以包含浮动元素（浮动元素也参与高度计算）。</li>
+</ul>
+<p>所以当我们不想发生边距重叠或者不希望和浮动元素重叠的时候，我们可以创建 BFC 元素。创建 BFC 元素有下面四种方法：</p>
+<ul>
+<li>浮动元素：<code>float</code> 除了 <code>none</code> 以外的值</li>
+<li>定位元素 <code>position</code> 除了 <code>static</code>/<code>relative</code> 以外的值</li>
+<li><code>display</code> 为 <code>inline-block</code>/<code>table-cell</code>/<code>table-caption</code> </li>
+<li><code>overflow</code> 除了 <code>visible</code> 以外的值（<code>hidden</code>，<code>auto</code>，<code>scroll</code>）</li>
+</ul>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>1.《详说 Block Formatting Contexts (块级格式化上下文)》<a href="https://www.cnblogs.com/leejersey/p/3991400.html" target="_blank" rel="external">https://www.cnblogs.com/leejersey/p/3991400.html</a></p>
+<p>2.《js 获得盒子距离窗口的距离的集合的函数dom.getboundingclientrect()》<a href="http://blog.csdn.net/qq_30100043/article/details/73176546" target="_blank" rel="external">http://blog.csdn.net/qq_30100043/article/details/73176546</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/CSS圣杯布局和双飞翼布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -332,7 +492,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.right &#123;</div><div class="line">  ...</div><div class="line">  position: relative;</div><div class="line">  margin-left: -150px;</div><div class="line">  right: -150px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>此时也有一种简单的写法，设置 <code>.right</code> 的负外边距。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.right &#123;</div><div class="line">  ...</div><div class="line">  margin-right: -150px; // 大于 .right 元素的宽度即可</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>因为 <code>.right</code> 创建了 BFC，所以其父元素的宽度等于 <code>.right</code> 的水平属性值之和，即外边距 + 内边距 + 边框宽度 + 宽度 = 父元素宽度。所以当 <code>.right</code> 的负外边距大于 <code>150px</code> 的时候，其父元素的宽度为 0，也就会挤上去第一排。而又因为它左边已经有另外一个浮动元素 <code>.center</code> 占位了，所以 <code>.right</code> 不会再往左偏移。</p>
+<p>因为 <code>.right</code> 创建了 BFC，所以其父元素的宽度等于 <code>.right</code> 的水平属性值之和，即外边距 + 内边距 + 边框宽度 + 宽度 = 父元素宽度。所以当 <code>.right</code> 的负外边距大于 <code>150px</code> 的时候，其父元素的宽度为 0，也就会挤上去第一排。</p>
+<p><strong>注意</strong>：这里我们需要注意一下，其实此时 <code>.left</code> 和 <code>.right</code> 在文档流中都处于 <code>.center</code> 的右边框的位置。只是 <code>.left</code> 利用左负外边距，使得元素的左边不断左移，因此随着 <code>margin-left</code> 的减少，元素也就不断往左边偏移。而 <code>.right</code> 利用右负外边距，导致元素的右边不断左移，该值的不断减小并不会影响它左边所处的位置，所以无论 <code>margin-right</code> 如何减少，它都会固定在 <code>.center</code> 的右边。（这个观点是我个人理解，还未找出官方解释，如果有错欢迎指正。）</p>
 <p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%886.13.25.png" alt=""></p>
 <p>此时可以发现圣杯布局已经完成了。</p>
 <h3 id="设置最小宽度"><a href="#设置最小宽度" class="headerlink" title="设置最小宽度"></a>设置最小宽度</h3><p>如果我们缩小浏览器宽度，发现布局会错乱。</p>
@@ -1206,7 +1367,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
