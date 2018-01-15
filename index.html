@@ -597,7 +597,7 @@
             <blockquote>
 <p><a href="http://huziketang.com/books/react/" target="_blank" rel="external">React.js 小书原系列地址</a></p>
 </blockquote>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节<a href="https://koromon.github.io/2018/01/04/%E3%80%8AReact.js%20%E5%B0%8F%E4%B9%A6%E3%80%8B%E5%AD%A6%E4%B9%A0%20-%20%E7%90%86%E8%A7%A3%20Redux/" target="_blank" rel="external">理解 Redux</a>中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store 进行结合。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节<a href="https://koromon.github.io/2018/01/04/%E3%80%8AReact.js%20%E5%B0%8F%E4%B9%A6%E3%80%8B%E5%AD%A6%E4%B9%A0%20-%20%E7%90%86%E8%A7%A3%20Redux/">理解 Redux</a>中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store 进行结合。</p>
 <p>在创建了 <code>store</code> 后，我们把它放到组件的 context 中。然后在子组件中获取 <code>store</code>，再进行和 Redux 类似的操作即可。</p>
 <p>在这个过程中，我们发现每个子组件中会出现很多重复获取 context 的代码。此时我们可以实现一个高阶组件 <code>connect</code>，这个高阶组件获取 <code>mapStateToProps</code>（设置子组件需要的属性）、<code>mapDispatchToProps</code>（设置子组件需要的方法）以及 WrappedComponent（被包裹的子组件）三个参数，再把通过这前两个函数得到的内容通过 <code>props</code> 传回去给子组件。</p>
 <p>最后我们再设置一个根组件（Provider），这个组件提供了 context 中的 <code>sotre</code>。</p>
