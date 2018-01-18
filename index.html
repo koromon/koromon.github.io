@@ -290,6 +290,143 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/18/pre-commit&ESLint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feng Chenming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koromon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/18/pre-commit&ESLint/" itemprop="url">pre-commit&ESLint</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T14:58:07+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a>EditorConfig</h2><p>相信大家合作项目的时候也发现，每个人的代码风格都不一样。最常见的，就说空格是用 <code>Tab</code> 还是 <code>spaces</code>，每个间隔是 2/4 个空格这个问题。所以没理由为了统一每次都要更改自己的编辑器的配置吧。</p>
+<p>所以我们可以通过配置 <code>.editorconfig</code> 这个文件，这个文件会帮助我们统一各个编辑器之间的代码风格（无论你编辑器的默认配置如何），这样当维护一个公用项目的时候，就再也不用调整你自己的编辑器配置了。</p>
+<h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>相信现在的前端都早已听过 ESLint 的大名，但是之前在项目中一直没有使用过。为了让自己写的代码风格更好呢，我也就打算自己先学习一波了~</p>
+<p>直接参考这篇文章<a href="https://segmentfault.com/a/1190000009077086?from=timeline&amp;isappinstalled=0" target="_blank" rel="external">使用 VSCode + ESLint 实践前端编码规范</a>进行配置即可。</p>
+<p>当然配置过程中还是遇到一些“坑”的：</p>
+<p>1、我安装的是 airbnb 的规范，所以最后的配置文件是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    &quot;extends&quot;: &quot;airbnb&quot;,</div><div class="line">    rules: &#123;</div><div class="line">      // 填上你自己需要覆盖的配置</div><div class="line">    &#125;,</div><div class="line">    &quot;env&quot;: &#123;</div><div class="line">      &quot;browser&quot;: true,</div><div class="line">      &quot;node&quot;: true,</div><div class="line">      &quot;es6&quot;: true</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里一开始还不知道如何配置自己的需求，后来发现直接添加 <code>rules</code> 对象编写就行了。。具体的配置呢，可以去<a href="http://eslint.cn/" target="_blank" rel="external">ESLint</a>官网查看。</p>
+<p>2、配置好后，发现没有效果？？？一开始以为是路径没有配好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;eslint.options&quot;: &#123;</div><div class="line">    &quot;configFile&quot;: &quot;这里填写 .eslintrc.js 的路径&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>但是在我确定指明了 <code>.eslintrc.js</code> 的路径后，还是没有任何反应。然后发现控制台提示无法找到模块 <code>eslint-config-airbnb</code>，再往上翻信息，发现安装 airbnb 模块的时候有警告 <code>warn</code> 缺少 <code>eslint</code> 模块。<span style="color:red">所以 <code>eslint</code> 在全局安装后还是要在项目中安装的。</span>然后其实并不需要通过 <code>configFile</code> 指定 <code>.eslintrc.js</code> 的路径也行，因为它会在项目中逐渐往上一级找配置文件。</p>
+<p>如果你有不想检测的文件夹，新建一个 <code>.eslintignore</code> 文件，在里面配置好相关路径（文件）即可。</p>
+<h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><p>现在 ESLint 已经配置好了，但是还有一个问题，如果别人无视这些报错也是可以的。。。所以这里推荐<a href="(https://www.npmjs.com/package/pre-commit">pre-commit</a>)这款插件，使用说明参考文档即可。</p>
+<p>这里看看我的配置，这样每次 <code>commit</code> 之前，都会执行 <code>lint</code> 和 <code>fix</code> 脚本，如果有 ESLint 报错的情况，都是无法成功 <code>commit</code> 的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</div><div class="line">    &quot;lint&quot;: &quot;eslint .&quot;, // 检测全部文件</div><div class="line">    &quot;fix&quot;: &quot;eslint --fix .&quot; // 修复可以修复的文件</div><div class="line">  &#125;,</div><div class="line">  &quot;pre-commit&quot;: [</div><div class="line">    &quot;fix&quot;,</div><div class="line">    &quot;lint&quot;</div><div class="line">  ],</div></pre></td></tr></table></figure>
+<p>当然咯，如果想要强制提交也是可以的 <code>git commit -m &#39;XXX&#39; --no-verify</code>。</p>
+<p>这里我也遇到一个坑，之前尝试的时候不小心执行了 <code>pre-commit/uninstall.js</code>，结果导致每次 <code>commit</code> 的时候根本不会去判断是否报错，后来在这篇文章<a href="http://xiaoqiang730730.github.io/2016/11/04/pre-commit/" target="_blank" rel="external">pre-commit</a>发现原因。于是切换到 <code>pre-commit</code> 文件夹，执行 <code>node install.js</code> 即可。</p>
+<p>好了~现在可以开始规范的编写代码啦。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/16/HTTP协议简单概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -365,7 +502,7 @@
 <p>HTTP 协议是 Hyper Text Transfer Protocol（超文本传输协议）的缩写，是用于从万维网（WWW：World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
 <p>HTTP 基于 TCP/IP 通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）</p>
 </blockquote>
-<h2 id="HTTP-协议的主要特点"><a href="#HTTP-协议的主要特点" class="headerlink" title="HTTP 协议的主要特点"></a>HTTP 协议的主要特点</h2><h4 id="简单快速"><a href="#简单快速" class="headerlink" title="简单快速"></a>简单快速</h4><p>每个资源（URI）都是固定的，有统一的资源服务，只要输入对应的 URI 即可。客户向服务器请求服务时，只需传送请求方法和路径。</p>
+<h2 id="HTTP-协议的主要特点"><a href="#HTTP-协议的主要特点" class="headerlink" title="HTTP 协议的主要特点"></a>HTTP 协议的主要特点</h2><h3 id="简单快速"><a href="#简单快速" class="headerlink" title="简单快速"></a>简单快速</h3><p>每个资源（URI）都是固定的，有统一的资源服务，只要输入对应的 URI 即可。客户向服务器请求服务时，只需传送请求方法和路径。</p>
 <h3 id="灵活"><a href="#灵活" class="headerlink" title="灵活"></a>灵活</h3><p>通过一个 HTTP 协议可以完成不同数据类型的传输，正在传输的类型由Content-Type 加以标记。</p>
 <h3 id="无连接"><a href="#无连接" class="headerlink" title="无连接"></a>无连接</h3><p>每次连接只处理一个请求。服务器处理完客户的请求，并且收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</p>
 <h3 id="无状态"><a href="#无状态" class="headerlink" title="无状态"></a>无状态</h3><p>HTTP 协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，可能导致每次连接传送的数据量增大。可以通过其他手段获取状态，比如 session）</p>
@@ -446,6 +583,8 @@
 <p>这个模式从 HTTP1.1 版本开始支持</p>
 <h2 id="管线化"><a href="#管线化" class="headerlink" title="管线化"></a>管线化</h2><p>管线化通过持久连接完成，把全部请求一次性打包传送，然后把全部响应一次性打包返回。管线化不会影响响应返回的顺序，同时只有 GET 和 HEAD 请求才可以进行管线化。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>HTTP 协议定义 Web 客户端如何从 Web 服务器请求 Web 资源，以及服务器如何把 Web 资源传送给客户端。HTTP 协议采用了请求/响应模型。客户端向服务器发送一个请求报文，请求报文包含请求的方法、URL、协议版本、请求头部和请求数据。服务器以一个状态行作为响应，响应的内容包括协议的版本、成功或者错误代码、服务器信息、响应头部和响应数据。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.<a href="http://www.runoob.com/http/http-methods.html" target="_blank" rel="external">http://www.runoob.com/http/http-methods.html</a></p>
+<p>2.<a href="https://www.jianshu.com/p/80e25cb1d81a" target="_blank" rel="external">关于HTTP协议，一篇就够了</a></p>
 
           
         
@@ -1800,146 +1939,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2017/12/19/hexo简单使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feng Chenming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Koromon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/19/hexo简单使用/" itemprop="url">hexo简单使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T09:18:33+08:00">
-                2017-12-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a>，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。</p>
-</blockquote>
-<h2 id="new-新建文章"><a href="#new-新建文章" class="headerlink" title="new - 新建文章"></a>new - 新建文章</h2><p><code>$ hexo new [layout] &lt;title&gt;</code></p>
-<p>按照 <code>layout</code> 设置的默认模板新建一篇文章。</p>
-<h2 id="server-本地预览"><a href="#server-本地预览" class="headerlink" title="server - 本地预览"></a>server - 本地预览</h2><p><code>$ hexo server</code></p>
-<p>启动服务器。默认情况下，访问网址为： <code>http://localhost:4000/</code>。这样就可以在本地看到部署后的效果了。</p>
-<h2 id="generate-生成资源"><a href="#generate-生成资源" class="headerlink" title="generate - 生成资源"></a>generate - 生成资源</h2><p><code>$ hexo generate</code></p>
-<p>生成静态文件，也就是生成最新的资源，一般在部署最新文章前都要先生成资源。而这个指令有两个选项</p>
-<ul>
-<li><code>-d, --deploy</code>    文件生成后立即部署网站，也就是不用自己再执行部署的代码了</li>
-<li><code>-w, --watch</code>    监视文件变动，也就是本地修改文章后会实时生成最新的资源</li>
-</ul>
-<h2 id="deploy-部署资源"><a href="#deploy-部署资源" class="headerlink" title="deploy - 部署资源"></a>deploy - 部署资源</h2><p><code>$ hexo deploy</code>(简写 <code>$ hexo d</code>)</p>
-<p>把网站部署到线上。这个指令有一个选项</p>
-<ul>
-<li><code>-g, --generate</code> 部署之前预先生成静态文件，如果执行这个选项就可以省略上面上面生成资源那个指令。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1983,7 +1989,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1996,7 +2002,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
