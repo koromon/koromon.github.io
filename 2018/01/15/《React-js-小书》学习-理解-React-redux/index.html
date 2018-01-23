@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="React," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="we shall never surrender">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Koromon&#39;s Blog">
-<meta property="og:url" content="https://koromon.github.io/tags/DOM事件/index.html">
+<meta name="description" content="React.js 小书原系列地址  小结之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节理解 Redux中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《React.js 小书》学习 - 理解 React-redux">
+<meta property="og:url" content="https://koromon.github.io/2018/01/15/《React-js-小书》学习-理解-React-redux/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="we shall never surrender">
+<meta property="og:description" content="React.js 小书原系列地址  小结之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节理解 Redux中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-15T08:59:48.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Koromon&#39;s Blog">
-<meta name="twitter:description" content="we shall never surrender">
+<meta name="twitter:title" content="《React.js 小书》学习 - 理解 React-redux">
+<meta name="twitter:description" content="React.js 小书原系列地址  小结之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节理解 Redux中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://koromon.github.io/tags/DOM事件/"/>
+  <link rel="canonical" href="https://koromon.github.io/2018/01/15/《React-js-小书》学习-理解-React-redux/"/>
 
 
 
 
 
-  <title>标签: DOM事件 | Koromon's Blog</title>
+  <title>《React.js 小书》学习 - 理解 React-redux | Koromon's Blog</title>
   
 
 
@@ -153,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,54 +277,163 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>DOM事件<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/15/《React-js-小书》学习-理解-React-redux/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feng Chenming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koromon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/15/JavaScript-DOM事件/" itemprop="url">
-              
-                <span itemprop="name">JavaScript DOM事件</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">《React.js 小书》学习 - 理解 React-redux</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-15T17:18:15+08:00"
-              content="2018-01-15" >
-          01-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-15T16:15:16+08:00">
+                2018-01-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="http://huziketang.com/books/react/" target="_blank" rel="external">React.js 小书原系列地址</a></p>
+</blockquote>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节<a href="https://koromon.github.io/2018/01/04/%E3%80%8AReact.js%20%E5%B0%8F%E4%B9%A6%E3%80%8B%E5%AD%A6%E4%B9%A0%20-%20%E7%90%86%E8%A7%A3%20Redux/">理解 Redux</a>中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store 进行结合。</p>
+<p>在创建了 <code>store</code> 后，我们把它放到组件的 context 中。然后在子组件中获取 <code>store</code>，再进行和 Redux 类似的操作即可。</p>
+<p>在这个过程中，我们发现每个子组件中会出现很多重复获取 context 的代码。此时我们可以实现一个高阶组件 <code>connect</code>，这个高阶组件获取 <code>mapStateToProps</code>（设置子组件需要的属性）、<code>mapDispatchToProps</code>（设置子组件需要的方法）以及 WrappedComponent（被包裹的子组件）三个参数，再把通过这前两个函数得到的内容通过 <code>props</code> 传回去给子组件。</p>
+<p>最后我们再设置一个根组件（Provider），这个组件提供了 context 中的 <code>sotre</code>。</p>
+<p>通过这样的设置，我们的组件都能抽离为 Dump 和 Smart 组件。在 Dump 组件中，我们不需要处理数据，只需要根据 Smart 组件中传入的 <code>props</code> 进行显示即可。所以这样的 Dump 组件是可以复用的。 而 Smart 组件则是用来执行特定应用逻辑的，不用考虑太多复用性问题。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag"># React</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/09/CSS盒模型/" rel="next" title="CSS盒模型">
+                <i class="fa fa-chevron-left"></i> CSS盒模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/15/JavaScript-DOM事件/" rel="prev" title="JavaScript DOM事件">
+                JavaScript DOM事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -330,6 +441,8 @@
 
 
           
+  
+
 
         </div>
         
@@ -350,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -404,6 +526,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">1.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -543,6 +681,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

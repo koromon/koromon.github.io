@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo,blog," />
+  <meta name="keywords" content="eslint,pre-commit," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
-<meta name="keywords" content="hexo,blog">
+<meta name="description" content="EditorConfig相信大家合作项目的时候也发现，每个人的代码风格都不一样。最常见的，就说空格是用 Tab 还是 spaces，每个间隔是 2/4 个空格这个问题。所以没理由为了统一每次都要更改自己的编辑器的配置吧。 所以我们可以通过配置 .editorconfig 这个文件，这个文件会帮助我们统一各个编辑器之间的代码风格（无论你编辑器的默认配置如何），这样当维护一个公用项目的时候，就再也不用">
+<meta name="keywords" content="eslint,pre-commit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo简单使用">
-<meta property="og:url" content="https://koromon.github.io/2017/12/19/hexo简单使用/index.html">
+<meta property="og:title" content="pre-commit&amp;ESLint">
+<meta property="og:url" content="https://koromon.github.io/2018/01/18/pre-commit-ESLint/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
+<meta property="og:description" content="EditorConfig相信大家合作项目的时候也发现，每个人的代码风格都不一样。最常见的，就说空格是用 Tab 还是 spaces，每个间隔是 2/4 个空格这个问题。所以没理由为了统一每次都要更改自己的编辑器的配置吧。 所以我们可以通过配置 .editorconfig 这个文件，这个文件会帮助我们统一各个编辑器之间的代码风格（无论你编辑器的默认配置如何），这样当维护一个公用项目的时候，就再也不用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-02T12:49:38.154Z">
+<meta property="og:updated_time" content="2018-01-18T07:39:16.472Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo简单使用">
-<meta name="twitter:description" content="官方文档，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。  new - 新建文章$ hexo new [layout] &amp;lt;title&amp;gt; 按照 layout 设置的默认模板新建一篇文章。 server - 本地预览$ hexo server 启动服务器。默认情况下，访问网址为： http://localhost:4000/。这样就可以在本">
+<meta name="twitter:title" content="pre-commit&amp;ESLint">
+<meta name="twitter:description" content="EditorConfig相信大家合作项目的时候也发现，每个人的代码风格都不一样。最常见的，就说空格是用 Tab 还是 spaces，每个间隔是 2/4 个空格这个问题。所以没理由为了统一每次都要更改自己的编辑器的配置吧。 所以我们可以通过配置 .editorconfig 这个文件，这个文件会帮助我们统一各个编辑器之间的代码风格（无论你编辑器的默认配置如何），这样当维护一个公用项目的时候，就再也不用">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://koromon.github.io/2017/12/19/hexo简单使用/"/>
+  <link rel="canonical" href="https://koromon.github.io/2018/01/18/pre-commit-ESLint/"/>
 
 
 
 
 
-  <title>hexo简单使用 | Koromon's Blog</title>
+  <title>pre-commit&ESLint | Koromon's Blog</title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2017/12/19/hexo简单使用/">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/18/pre-commit-ESLint/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo简单使用</h1>
+          <h1 class="post-title" itemprop="name headline">pre-commit&ESLint</h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T09:18:33+08:00">
-                2017-12-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T14:58:07+08:00">
+                2018-01-18
               </time>
             
 
@@ -363,24 +363,24 @@
       
 
       
-        <blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官方文档</a>，官方介绍已经很详细了，所以这里先记录一些常用的指令。先把发布的流程学会，有需要再研究其他指令。</p>
-</blockquote>
-<h2 id="new-新建文章"><a href="#new-新建文章" class="headerlink" title="new - 新建文章"></a>new - 新建文章</h2><p><code>$ hexo new [layout] &lt;title&gt;</code></p>
-<p>按照 <code>layout</code> 设置的默认模板新建一篇文章。</p>
-<h2 id="server-本地预览"><a href="#server-本地预览" class="headerlink" title="server - 本地预览"></a>server - 本地预览</h2><p><code>$ hexo server</code></p>
-<p>启动服务器。默认情况下，访问网址为： <code>http://localhost:4000/</code>。这样就可以在本地看到部署后的效果了。</p>
-<h2 id="generate-生成资源"><a href="#generate-生成资源" class="headerlink" title="generate - 生成资源"></a>generate - 生成资源</h2><p><code>$ hexo generate</code></p>
-<p>生成静态文件，也就是生成最新的资源，一般在部署最新文章前都要先生成资源。而这个指令有两个选项</p>
-<ul>
-<li><code>-d, --deploy</code>    文件生成后立即部署网站，也就是不用自己再执行部署的代码了</li>
-<li><code>-w, --watch</code>    监视文件变动，也就是本地修改文章后会实时生成最新的资源</li>
-</ul>
-<h2 id="deploy-部署资源"><a href="#deploy-部署资源" class="headerlink" title="deploy - 部署资源"></a>deploy - 部署资源</h2><p><code>$ hexo deploy</code>(简写 <code>$ hexo d</code>)</p>
-<p>把网站部署到线上。这个指令有一个选项</p>
-<ul>
-<li><code>-g, --generate</code> 部署之前预先生成静态文件，如果执行这个选项就可以省略上面上面生成资源那个指令。</li>
-</ul>
+        <h2 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a>EditorConfig</h2><p>相信大家合作项目的时候也发现，每个人的代码风格都不一样。最常见的，就说空格是用 <code>Tab</code> 还是 <code>spaces</code>，每个间隔是 2/4 个空格这个问题。所以没理由为了统一每次都要更改自己的编辑器的配置吧。</p>
+<p>所以我们可以通过配置 <code>.editorconfig</code> 这个文件，这个文件会帮助我们统一各个编辑器之间的代码风格（无论你编辑器的默认配置如何），这样当维护一个公用项目的时候，就再也不用调整你自己的编辑器配置了。</p>
+<h2 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h2><p>相信现在的前端都早已听过 ESLint 的大名，但是之前在项目中一直没有使用过。为了让自己写的代码风格更好呢，我也就打算自己先学习一波了~</p>
+<p>直接参考这篇文章<a href="https://segmentfault.com/a/1190000009077086?from=timeline&amp;isappinstalled=0" target="_blank" rel="external">使用 VSCode + ESLint 实践前端编码规范</a>进行配置即可。</p>
+<p>当然配置过程中还是遇到一些“坑”的：</p>
+<p>1、我安装的是 airbnb 的规范，所以最后的配置文件是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    &quot;extends&quot;: &quot;airbnb&quot;,</div><div class="line">    rules: &#123;</div><div class="line">      // 填上你自己需要覆盖的配置</div><div class="line">    &#125;,</div><div class="line">    &quot;env&quot;: &#123;</div><div class="line">      &quot;browser&quot;: true,</div><div class="line">      &quot;node&quot;: true,</div><div class="line">      &quot;es6&quot;: true</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里一开始还不知道如何配置自己的需求，后来发现直接添加 <code>rules</code> 对象编写就行了。。具体的配置呢，可以去<a href="http://eslint.cn/" target="_blank" rel="external">ESLint</a>官网查看。</p>
+<p>2、配置好后，发现没有效果？？？一开始以为是路径没有配好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;eslint.options&quot;: &#123;</div><div class="line">    &quot;configFile&quot;: &quot;这里填写 .eslintrc.js 的路径&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>但是在我确定指明了 <code>.eslintrc.js</code> 的路径后，还是没有任何反应。然后发现控制台提示无法找到模块 <code>eslint-config-airbnb</code>，再往上翻信息，发现安装 airbnb 模块的时候有警告 <code>warn</code> 缺少 <code>eslint</code> 模块。<span style="color:red">所以 <code>eslint</code> 在全局安装后还是要在项目中安装的。</span>然后其实并不需要通过 <code>configFile</code> 指定 <code>.eslintrc.js</code> 的路径也行，因为它会在项目中逐渐往上一级找配置文件。</p>
+<p>如果你有不想检测的文件夹，新建一个 <code>.eslintignore</code> 文件，在里面配置好相关路径（文件）即可。</p>
+<h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><p>现在 ESLint 已经配置好了，但是还有一个问题，如果别人无视这些报错也是可以的。。。所以这里推荐<a href="(https://www.npmjs.com/package/pre-commit">pre-commit</a>)这款插件，使用说明参考文档即可。</p>
+<p>这里看看我的配置，这样每次 <code>commit</code> 之前，都会执行 <code>lint</code> 和 <code>fix</code> 脚本，如果有 ESLint 报错的情况，都是无法成功 <code>commit</code> 的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</div><div class="line">    &quot;lint&quot;: &quot;eslint .&quot;, // 检测全部文件</div><div class="line">    &quot;fix&quot;: &quot;eslint --fix .&quot; // 修复可以修复的文件</div><div class="line">  &#125;,</div><div class="line">  &quot;pre-commit&quot;: [</div><div class="line">    &quot;fix&quot;,</div><div class="line">    &quot;lint&quot;</div><div class="line">  ],</div></pre></td></tr></table></figure>
+<p>当然咯，如果想要强制提交也是可以的 <code>git commit -m &#39;XXX&#39; --no-verify</code>。</p>
+<p>这里我也遇到一个坑，之前尝试的时候不小心执行了 <code>pre-commit/uninstall.js</code>，结果导致每次 <code>commit</code> 的时候根本不会去判断是否报错，后来在这篇文章<a href="http://xiaoqiang730730.github.io/2016/11/04/pre-commit/" target="_blank" rel="external">pre-commit</a>发现原因。于是切换到 <code>pre-commit</code> 文件夹，执行 <code>node install.js</code> 即可。</p>
+<p>好了~现在可以开始规范的编写代码啦。</p>
 
       
     </div>
@@ -398,9 +398,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/eslint/" rel="tag"># eslint</a>
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/pre-commit/" rel="tag"># pre-commit</a>
           
         </div>
       
@@ -413,14 +413,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/16/HTTP协议简单概念/" rel="next" title="HTTP协议简单概念">
+                <i class="fa fa-chevron-left"></i> HTTP协议简单概念
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/02/《React-js-小书》学习-基本用法/" rel="prev" title="《React.js 小书》学习 - 基本用法">
-                《React.js 小书》学习 - 基本用法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/22/js原型链简介/" rel="prev" title="js原型链简介">
+                js原型链简介 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -544,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#new-新建文章"><span class="nav-number">1.</span> <span class="nav-text">new - 新建文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-本地预览"><span class="nav-number">2.</span> <span class="nav-text">server - 本地预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generate-生成资源"><span class="nav-number">3.</span> <span class="nav-text">generate - 生成资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploy-部署资源"><span class="nav-number">4.</span> <span class="nav-text">deploy - 部署资源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#EditorConfig"><span class="nav-number">1.</span> <span class="nav-text">EditorConfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ESLint"><span class="nav-number">2.</span> <span class="nav-text">ESLint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pre-commit"><span class="nav-number">3.</span> <span class="nav-text">pre-commit</span></a></li></ol></div>
             
 
           </div>
