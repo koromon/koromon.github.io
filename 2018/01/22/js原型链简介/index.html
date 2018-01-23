@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/WX20180123-104228.png">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/WX20180123-142653.png">
-<meta property="og:updated_time" content="2018-01-23T07:35:55.898Z">
+<meta property="og:updated_time" content="2018-01-23T07:38:39.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js原型链简介">
 <meta name="twitter:description" content="基础概念prototype 我们创建的每个函数都有一个 prototype（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。  constructor 在默认情况下，所有原型对象都会自动获得一个 constru">
@@ -408,7 +408,7 @@
 <li>如果构造函数返回了一个对象，那么这个对象会取代 <code>new</code> 出来的结果，反之则返回前面创建的对象。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function People()&#123;</div><div class="line">  return &#123;&#125; // new 返回的对象</div><div class="line">&#125;</div><div class="line"></div><div class="line">var people = new People();</div><div class="line">console.log(people.__proto__ === People.prototype); // false</div><div class="line">console.log(people.__proto__ === Object.prototype); // true</div></pre></td></tr></table></figure>
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p><code>instanceof</code> 的原理就是判断对象的 <code>__proto__</code> 属性和函数对象的 <code>prototype</code> 是不是同一个引用。（即只要是在一条原型链都返回 <code>true</code>）。</p>
+<h2 id="Function-和-Object"><a href="#Function-和-Object" class="headerlink" title="Function 和 Object"></a>Function 和 Object</h2><p><code>instanceof</code> 的原理就是判断对象的 <code>__proto__</code> 属性和函数对象的 <code>prototype</code> 是不是同一个引用。（即只要是在一条原型链都返回 <code>true</code>）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function People()&#123;&#125;</div><div class="line">function Man()&#123;&#125;</div><div class="line"></div><div class="line">Man.prototype = new People();</div><div class="line">var man = new Man();</div><div class="line"></div><div class="line">console.log(man instanceof Man); // true</div><div class="line">console.log(man instanceof People); // true</div><div class="line">console.log(man instanceof Object); // true</div></pre></td></tr></table></figure>
 <p>翻译为代码，其实就是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">man.__proto__.__proto__.... === XXX.prototype ?</div><div class="line">// 把 XXX 替换为 Man/People/Object，等式均成立</div></pre></td></tr></table></figure>
@@ -424,7 +424,7 @@
 <li>所有构造函数的 <code>constructor</code> 都指向 Function</li>
 <li><code>Function</code> 的原型对象是一个特殊的匿名函数，这个匿名函数有 <code>__proto__</code> 属性并且指向 <code>Object.prototype</code>。 </li>
 </ul>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ol>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
 <li><p>Object.prototype 是一个普通对象，这个对象是原型链的顶端。</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">typeof Object.prototype; // &quot;object&quot;</div><div class="line">console.log(Object.prototype.__proto__ === null); // true</div></pre></td></tr></table></figure>
 </li>
@@ -497,6 +497,10 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/23/js实现继承的几种方式/" rel="prev" title="js实现继承的几种方式">
+                js实现继承的几种方式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -571,7 +575,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -584,7 +588,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -619,7 +623,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础概念"><span class="nav-number">1.</span> <span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype"><span class="nav-number">1.1.</span> <span class="nav-text">prototype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">1.2.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto"><span class="nav-number">1.3.</span> <span class="nav-text">__proto__</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三个概念之间的关系"><span class="nav-number">2.1.</span> <span class="nav-text">三个概念之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype-和-proto-的区别"><span class="nav-number">2.2.</span> <span class="nav-text">prototype 和 __proto__ 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象"><span class="nav-number">2.3.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何构建原型链"><span class="nav-number">2.4.</span> <span class="nav-text">如何构建原型链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof"><span class="nav-number">3.</span> <span class="nav-text">instanceof</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">3.1.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础概念"><span class="nav-number">1.</span> <span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype"><span class="nav-number">1.1.</span> <span class="nav-text">prototype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">1.2.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto"><span class="nav-number">1.3.</span> <span class="nav-text">__proto__</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三个概念之间的关系"><span class="nav-number">2.1.</span> <span class="nav-text">三个概念之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype-和-proto-的区别"><span class="nav-number">2.2.</span> <span class="nav-text">prototype 和 __proto__ 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象"><span class="nav-number">2.3.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何构建原型链"><span class="nav-number">2.4.</span> <span class="nav-text">如何构建原型链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-和-Object"><span class="nav-number">3.</span> <span class="nav-text">Function 和 Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>

@@ -290,6 +290,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/23/js实现继承的几种方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feng Chenming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koromon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/js实现继承的几种方式/" itemprop="url">js实现继承的几种方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T18:29:05+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>写完了上一篇文章<a href="https://koromon.github.io/2018/01/22/js原型链简介/">《js原型链简介》</a>后，我对原型链的理解也加深了不少，所以现在趁热打铁，继续来写一写 js 中的继承。</p>
+<p>js 中的继承是通过原型链来实现的，常见的继承方式有如下几种：</p>
+<h3 id="借用构造函数继承"><a href="#借用构造函数继承" class="headerlink" title="借用构造函数继承"></a>借用构造函数继承</h3><p>顾名思义，是通过构造函数来实现继承。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function People(age) &#123;</div><div class="line">	this.age = age;</div><div class="line">&#125;</div><div class="line">People.prototype.run = function() &#123;</div><div class="line">	console.log(&apos;run&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Man(name,age) &#123;</div><div class="line">	People.call(this,age); // 构造函数 People 中的 this 指向 Man 的实例</div><div class="line">	this.name = name;</div><div class="line">&#125;</div><div class="line">var man = new Man(&apos;ming&apos;, 2);</div><div class="line"></div><div class="line">console.log(man); // &#123;age: 2, name: &quot;ming&quot;&#125;</div><div class="line"></div><div class="line">console.log(man instanceof Man); // true</div><div class="line">console.log(man instanceof People); // false</div><div class="line"></div><div class="line">console.log(man.constructor); // Man</div><div class="line"></div><div class="line">man.run(); // TypeError</div></pre></td></tr></table></figure>
+<p>由此可见，借用构造函数继承是部分继承，只继承构造函数中的属性，却没有继承原型链上的属性。</p>
+<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><p>原型链继承，把父类的实例赋值给子类的 <code>__proto__</code>，子类的实例可以通过原型链找到父类上的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function People() &#123;</div><div class="line">	this.age = 3;</div><div class="line">&#125;</div><div class="line">People.prototype.run = function() &#123;</div><div class="line">	console.log(&apos;run&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Man(name) &#123;</div><div class="line">	this.name = name;</div><div class="line">&#125;</div><div class="line">Man.prototype = new People();</div><div class="line">var man = new Man(&apos;ming&apos;);</div><div class="line"></div><div class="line">console.log(man); // &#123;name: &quot;ming&quot;&#125;</div><div class="line">console.log(man.age); // 3</div><div class="line"></div><div class="line">console.log(man instanceof Man); // true</div><div class="line">console.log(man instanceof People); // true</div><div class="line"></div><div class="line">console.log(man.constructor); // People</div><div class="line"></div><div class="line">man.run(); // run</div></pre></td></tr></table></figure>
+<p>原型链继承同样是部分继承，只继承了原型链上的属性，没有继承构造函数的属性。这个继承不仅无法修改父类中属性，同时会导致子类实例的 <code>constructor</code> 无法指向自身的构造函数。</p>
+<h3 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h3><p>把构造函数继承和组合继承组合起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function People(age) &#123;</div><div class="line">	this.age = age;</div><div class="line">&#125;</div><div class="line">People.prototype.run = function() &#123;</div><div class="line">	console.log(&apos;run&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Man(name,age) &#123;</div><div class="line">    People.call(this,age); // 第二次执行构造函数 People</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">Man.prototype = new People(); // 第一次执行构造函数 People</div><div class="line">var man = new Man(&apos;ming&apos;,4);</div><div class="line"></div><div class="line">console.log(man); // &#123;age: 4, name: &quot;ming&quot;&#125;</div><div class="line"></div><div class="line">console.log(man instanceof Man); // true</div><div class="line">console.log(man instanceof People); // true</div><div class="line"></div><div class="line">console.log(man.constructor); // People</div><div class="line"></div><div class="line">man.run(); // run</div></pre></td></tr></table></figure>
+<p>组合继承是比较完美的继承方式，它是完全继承。但是它执行了两次构造函数，第一次执行的时候会把构造函数 <code>People</code> 中的属性赋值到 <code>Man</code> 的原型对象上，第二次执行构造函数会把构造函数 <code>People</code> 中的属性赋值到 <code>Man</code> 的实例上。同时这种方式会导致子类 <code>constructor</code> 属性无法指向自身的构造函数。</p>
+<h3 id="组合继承优化"><a href="#组合继承优化" class="headerlink" title="组合继承优化"></a>组合继承优化</h3><p>既然组合继承会执行两次构造函数，那么我们只要减少一次就行。因为原型链继承本质是把父类的原型对象赋值给子类的原型对象即可，并不需要创建一个父类实例再赋值。所以我们从原型链入手。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function People(age) &#123;</div><div class="line">	this.age = age;</div><div class="line">&#125;</div><div class="line">People.prototype.run = function() &#123;</div><div class="line">	console.log(&apos;run&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Man(name,age) &#123;</div><div class="line">    People.call(this,age); </div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">// Man.prototype = People.prototype; 缺点：修改 Man 的原型对象会导致 People 的也发生变化</div><div class="line">Man.prototype = Object.create(People.prototype); // 缺点：子类实例的 constructor 没有正确指向子类构造函数</div><div class="line">Man.prototype.constructor = Man; // 手动赋值，修正指向</div><div class="line"></div><div class="line">var man = new Man(&apos;ming&apos;,4);</div><div class="line"></div><div class="line">console.log(man); // &#123;age: 4, name: &quot;ming&quot;&#125;</div><div class="line"></div><div class="line">console.log(man instanceof Man); // true</div><div class="line">console.log(man instanceof People); // true</div><div class="line"></div><div class="line">console.log(man.constructor); // Man</div><div class="line"></div><div class="line">man.run(); // run</div></pre></td></tr></table></figure>
+<p>通过上面的优化，我们可以说完美的实现了继承的方式。只执行了一次父类构造函数，并且子类实例的 <code>constructor</code> 也能正确指向构造函数。</p>
+<h3 id="Class-实现继承"><a href="#Class-实现继承" class="headerlink" title="Class 实现继承"></a>Class 实现继承</h3><p>这个是 ES6 语法糖，大大简化了实现继承的步骤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class People&#123;</div><div class="line">  constructor(age)&#123;</div><div class="line">    this.age = age;</div><div class="line">  &#125;</div><div class="line">  run() &#123;</div><div class="line">    console.log(&apos;run&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">class Man extends People &#123;</div><div class="line">  constructor(name,age) &#123;</div><div class="line">    super(age);</div><div class="line">    this.name = name;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">let man = new Man(5,&apos;ming&apos;);</div><div class="line"></div><div class="line">console.log(man); // &#123;age: &quot;ming&quot;, name: 5&#125;</div><div class="line"></div><div class="line">console.log(man instanceof Man); // true</div><div class="line">console.log(man instanceof People); // true</div><div class="line"></div><div class="line">console.log(man.constructor); // Man</div><div class="line"></div><div class="line">man.run(); // run</div></pre></td></tr></table></figure>
+<p>可以看到，和组合继承优化的效果是一样的，并且语义更加清晰。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/22/js原型链简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -403,7 +539,7 @@
 <li>如果构造函数返回了一个对象，那么这个对象会取代 <code>new</code> 出来的结果，反之则返回前面创建的对象。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function People()&#123;</div><div class="line">  return &#123;&#125; // new 返回的对象</div><div class="line">&#125;</div><div class="line"></div><div class="line">var people = new People();</div><div class="line">console.log(people.__proto__ === People.prototype); // false</div><div class="line">console.log(people.__proto__ === Object.prototype); // true</div></pre></td></tr></table></figure>
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p><code>instanceof</code> 的原理就是判断对象的 <code>__proto__</code> 属性和函数对象的 <code>prototype</code> 是不是同一个引用。（即只要是在一条原型链都返回 <code>true</code>）。</p>
+<h2 id="Function-和-Object"><a href="#Function-和-Object" class="headerlink" title="Function 和 Object"></a>Function 和 Object</h2><p><code>instanceof</code> 的原理就是判断对象的 <code>__proto__</code> 属性和函数对象的 <code>prototype</code> 是不是同一个引用。（即只要是在一条原型链都返回 <code>true</code>）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function People()&#123;&#125;</div><div class="line">function Man()&#123;&#125;</div><div class="line"></div><div class="line">Man.prototype = new People();</div><div class="line">var man = new Man();</div><div class="line"></div><div class="line">console.log(man instanceof Man); // true</div><div class="line">console.log(man instanceof People); // true</div><div class="line">console.log(man instanceof Object); // true</div></pre></td></tr></table></figure>
 <p>翻译为代码，其实就是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">man.__proto__.__proto__.... === XXX.prototype ?</div><div class="line">// 把 XXX 替换为 Man/People/Object，等式均成立</div></pre></td></tr></table></figure>
@@ -419,7 +555,7 @@
 <li>所有构造函数的 <code>constructor</code> 都指向 Function</li>
 <li><code>Function</code> 的原型对象是一个特殊的匿名函数，这个匿名函数有 <code>__proto__</code> 属性并且指向 <code>Object.prototype</code>。 </li>
 </ul>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ol>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
 <li><p>Object.prototype 是一个普通对象，这个对象是原型链的顶端。</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">typeof Object.prototype; // &quot;object&quot;</div><div class="line">console.log(Object.prototype.__proto__ === null); // true</div></pre></td></tr></table></figure>
 </li>
@@ -1839,163 +1975,6 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/03/《React.js 小书》学习 - 状态管理和生命周期/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feng Chenming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Koromon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/03/《React.js 小书》学习 - 状态管理和生命周期/" itemprop="url">《React.js 小书》学习 - 状态管理和生命周期</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T20:16:01+08:00">
-                2018-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><a href="http://huziketang.com/books/react/" target="_blank" rel="external">React.js 小书原系列地址</a></p>
-</blockquote>
-<h3 id="状态管理-状态提升"><a href="#状态管理-状态提升" class="headerlink" title="状态管理 - 状态提升"></a>状态管理 - 状态提升</h3><p>把组件之间共享的状态交给组件最近的公共父节点保管，然后通过 <code>props</code> 把状态传递给子组件，实现组件数据共享。把子孙组件的状态传递给父组件，也称为状态提升。</p>
-<p>当某个状态被多个组件依赖或者影响的时候，就应该使用状态提升。后面可以使用 Redux 进行状态管理。</p>
-<h3 id="挂载阶段的组件生命周期"><a href="#挂载阶段的组件生命周期" class="headerlink" title="挂载阶段的组件生命周期"></a>挂载阶段的组件生命周期</h3><p>React.js 将组件渲染，并且构造 DOM 元素然后塞入页面的过程称为组件的挂载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-&gt; constructor()</div><div class="line">-&gt; componentWillMount() // 组件挂载开始之前</div><div class="line">-&gt; render()</div><div class="line">// 然后构造 DOM 元素插入页面 </div><div class="line">-&gt; componentDidMount()  // 组件挂载完成后</div><div class="line">// ...</div><div class="line">// 即将从页面中删除 (元素隐藏的时候)</div><div class="line">-&gt; componentWillUnmount()</div><div class="line">// 从页面中删除</div></pre></td></tr></table></figure>
-<h3 id="生命周期的应用"><a href="#生命周期的应用" class="headerlink" title="生命周期的应用"></a>生命周期的应用</h3><p><code>constructor</code> 中一般进行组件的 <code>state</code> 初始化</p>
-<p><code>componentWillMount</code>  中一般进行组件的启动动作，比如 Ajax 数据拉取，定时器的启动等。</p>
-<p><code>componentDidMount</code> 中一般进行对于 DOM 有依赖的操作。</p>
-<p><code>componentWillUnmount</code> 中可以对一些定时器进行销毁或者数据清理。</p>
-<h3 id="更新阶段的组件生命周期"><a href="#更新阶段的组件生命周期" class="headerlink" title="更新阶段的组件生命周期"></a>更新阶段的组件生命周期</h3><p>使用 <code>setState</code> 导致重新渲染组件的过程，这是一个组件变化的过程，也有一系列生命周期函数。</p>
-<ol>
-<li><code>shouldComponentUpdate(nextProps, nextState)</code>：你可以通过这个方法控制组件是否重新渲染。如果返回 false 组件就不会重新渲染。这个生命周期在 React.js 性能优化上非常有用。</li>
-<li><code>componentWillReceiveProps(nextProps)</code>：组件从父组件接收到新的 props 之前调用。</li>
-<li><code>componentWillUpdate()</code>：组件开始重新渲染之前调用。</li>
-<li><code>componentDidUpdate()</code>：组件重新渲染并且把更改变更到真实的 DOM 以后调用。</li>
-</ol>
-<h3 id="ref-和-React-js-中的-DOM-操作"><a href="#ref-和-React-js-中的-DOM-操作" class="headerlink" title="ref 和 React.js 中的 DOM 操作"></a>ref 和 React.js 中的 DOM 操作</h3><p>在 JSX 中给某个元素添加 <code>ref</code> 属性，<code>ref</code> 接受一个回调函数，在加载的时候把 DOM 元素传入 <code>ref</code> 的回调函数中。</p>
-<p>要尽量减少 <code>ref</code> 的使用。<a href="https://doc.react-china.org/docs/refs-and-the-dom.html#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8-refs" target="_blank" rel="external">关于 ref 的官方文档</a></p>
-<h3 id="props-children"><a href="#props-children" class="headerlink" title="props.children"></a>props.children</h3><p>使用自定义组件的时候，嵌套在组件内部的结构都可以通过 <code>props.children</code> 获取，获取的这个内容是一个数组。JSX 会自动把它们渲染出来。</p>
-<h3 id="dangerouslySetHTML-和-style-属性"><a href="#dangerouslySetHTML-和-style-属性" class="headerlink" title="dangerouslySetHTML 和 style 属性"></a>dangerouslySetHTML 和 style 属性</h3><p>React.js 中所有表达式插入的内容都会自动转义，类似 jQuery 中的 <code>text(..)</code> 函数。只能通过 <code>dangerouslySetHTML</code> 属性动态设置元素的 innerHTML，要传入 <code>__html</code> 属性值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dangerouslySetInnerHTML=&#123;&#123;__html: this.state.content&#125;&#125;</div></pre></td></tr></table></figure>
-<p>这个属性可能会导致 XSS 攻击，要慎用。</p>
-<p>React.js 中的 <code>style</code> 属性要传入一个对象，并且只能使用驼峰命名法。</p>
-<h3 id="PropTypes-和组件参数验证"><a href="#PropTypes-和组件参数验证" class="headerlink" title="PropTypes 和组件参数验证"></a>PropTypes 和组件参数验证</h3><p>因为 js 弱类型的特性，为了保证代码的健壮性，需要设置参数验证。使得组件开发更加规范。<a href="https://doc.react-china.org/docs/typechecking-with-proptypes.html" target="_blank" rel="external">PropTypes 官方文档</a></p>
-<h3 id="代码规范建议"><a href="#代码规范建议" class="headerlink" title="代码规范建议"></a>代码规范建议</h3><p>组件的私有方法使用 <code>_</code> 开头，所有事件监听的方法使用 <code>handle</code> 开头。把事件监听方法传给组件的时候，属性名用 <code>on</code> 开头。</p>
-<p>组件的内容编写顺序如下：</p>
-<ol>
-<li>static 开头的类属性，如 <code>defaultProps</code>、<code>propTypes</code>。</li>
-<li>构造函数，<code>constructor</code>。</li>
-<li>getter/setter。</li>
-<li>组件生命周期。</li>
-<li><code>_</code> 开头的私有方法。</li>
-<li>事件监听方法，<code>handle*</code>。</li>
-<li><code>render*</code> 开头的方法，有时候 <code>render()</code> 方法里面的内容会分开到不同函数里面进行，这些函数都以 <code>render*</code> 开头。</li>
-<li><code>render()</code> 方法。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2046,7 +2025,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2059,7 +2038,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
