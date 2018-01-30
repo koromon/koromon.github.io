@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="React," />
+  <meta name="keywords" content="每日小结," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="React.js 小书原系列地址  小结之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节理解 Redux中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store">
-<meta name="keywords" content="React">
+<meta name="description" content="今天完成的事情： 简单了解 Babel 的 presets 和 plugins 配置 简单了解 webpack 配置，主要了解其中几个常用的配置：entry，output，module，plugins 初步了解前端测试方面的内容，了解常见的代码功能测试以及 UI 测试。  明天计划的事情： 了解爬虫相关概念，并使用 Node.js 进行爬虫 了解一下前端通信相关的知识，服务器如何和浏览器进行交流">
+<meta name="keywords" content="每日小结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《React.js 小书》学习 - 理解 React-redux">
-<meta property="og:url" content="https://koromon.github.io/2018/01/15/《React-js-小书》学习-理解-React-redux/index.html">
+<meta property="og:title" content="20180129每日小结">
+<meta property="og:url" content="https://koromon.github.io/2018/01/29/20180129每日小结/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="React.js 小书原系列地址  小结之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节理解 Redux中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store">
+<meta property="og:description" content="今天完成的事情： 简单了解 Babel 的 presets 和 plugins 配置 简单了解 webpack 配置，主要了解其中几个常用的配置：entry，output，module，plugins 初步了解前端测试方面的内容，了解常见的代码功能测试以及 UI 测试。  明天计划的事情： 了解爬虫相关概念，并使用 Node.js 进行爬虫 了解一下前端通信相关的知识，服务器如何和浏览器进行交流">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-15T08:59:48.483Z">
+<meta property="og:updated_time" content="2018-01-30T02:49:07.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《React.js 小书》学习 - 理解 React-redux">
-<meta name="twitter:description" content="React.js 小书原系列地址  小结之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节理解 Redux中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store">
+<meta name="twitter:title" content="20180129每日小结">
+<meta name="twitter:description" content="今天完成的事情： 简单了解 Babel 的 presets 和 plugins 配置 简单了解 webpack 配置，主要了解其中几个常用的配置：entry，output，module，plugins 初步了解前端测试方面的内容，了解常见的代码功能测试以及 UI 测试。  明天计划的事情： 了解爬虫相关概念，并使用 Node.js 进行爬虫 了解一下前端通信相关的知识，服务器如何和浏览器进行交流">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://koromon.github.io/2018/01/15/《React-js-小书》学习-理解-React-redux/"/>
+  <link rel="canonical" href="https://koromon.github.io/2018/01/29/20180129每日小结/"/>
 
 
 
 
 
-  <title>《React.js 小书》学习 - 理解 React-redux | Koromon's Blog</title>
+  <title>20180129每日小结 | Koromon's Blog</title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/15/《React-js-小书》学习-理解-React-redux/">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/29/20180129每日小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《React.js 小书》学习 - 理解 React-redux</h1>
+          <h1 class="post-title" itemprop="name headline">20180129每日小结</h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-15T16:15:16+08:00">
-                2018-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T23:47:38+08:00">
+                2018-01-29
               </time>
             
 
@@ -363,14 +363,28 @@
       
 
       
-        <blockquote>
-<p><a href="http://huziketang.com/books/react/" target="_blank" rel="external">React.js 小书原系列地址</a></p>
-</blockquote>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>之前已经了解到，React.js 可以通过 context 设置‘全局变量’。这样父组件下的子组件就可以任意获取 context 中的变量，而不用一层层的进行状态提升。但是这样每个子组件都可以修改 context 会导致程序运行的不可预料。而在前一节<a href="https://koromon.github.io/2018/01/04/%E3%80%8AReact.js%20%E5%B0%8F%E4%B9%A6%E3%80%8B%E5%AD%A6%E4%B9%A0%20-%20%E7%90%86%E8%A7%A3%20Redux/">理解 Redux</a>中，我们了解到 store 是不会被随意修改的。于是我们考虑 context 和 store 进行结合。</p>
-<p>在创建了 <code>store</code> 后，我们把它放到组件的 context 中。然后在子组件中获取 <code>store</code>，再进行和 Redux 类似的操作即可。</p>
-<p>在这个过程中，我们发现每个子组件中会出现很多重复获取 context 的代码。此时我们可以实现一个高阶组件 <code>connect</code>，这个高阶组件获取 <code>mapStateToProps</code>（设置子组件需要的属性）、<code>mapDispatchToProps</code>（设置子组件需要的方法）以及 WrappedComponent（被包裹的子组件）三个参数，再把通过这前两个函数得到的内容通过 <code>props</code> 传回去给子组件。</p>
-<p>最后我们再设置一个根组件（Provider），这个组件提供了 context 中的 <code>sotre</code>。</p>
-<p>通过这样的设置，我们的组件都能抽离为 Dump 和 Smart 组件。在 Dump 组件中，我们不需要处理数据，只需要根据 Smart 组件中传入的 <code>props</code> 进行显示即可。所以这样的 Dump 组件是可以复用的。 而 Smart 组件则是用来执行特定应用逻辑的，不用考虑太多复用性问题。</p>
+        <h2 id="今天完成的事情："><a href="#今天完成的事情：" class="headerlink" title="今天完成的事情："></a>今天完成的事情：</h2><ul>
+<li>简单了解 <code>Babel</code> 的 <code>presets</code> 和 <code>plugins</code> 配置</li>
+<li>简单了解 webpack 配置，主要了解其中几个常用的配置：<code>entry</code>，<code>output</code>，<code>module</code>，<code>plugins</code></li>
+<li>初步了解前端测试方面的内容，了解常见的代码功能测试以及 UI 测试。</li>
+</ul>
+<h2 id="明天计划的事情："><a href="#明天计划的事情：" class="headerlink" title="明天计划的事情："></a>明天计划的事情：</h2><ul>
+<li>了解爬虫相关概念，并使用 Node.js 进行爬虫</li>
+<li>了解一下前端通信相关的知识，服务器如何和浏览器进行交流</li>
+</ul>
+<h2 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h2><p>根据教程发现有些测试无法通过，后来通过官方文档发现是由于测试工具升级导致的，随后根据官方教程步骤解决。</p>
+<h2 id="收获："><a href="#收获：" class="headerlink" title="收获："></a>收获：</h2><h3 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a><code>.babelrc</code></h3><p>配置文件，用于把高级语法处理为目前大部分浏览器可以使用的语法。对于 <code>presets</code> 和 <code>plugins</code>，<code>presets</code> 可以看成是一堆的 <code>plugins</code> 插件预设，而 <code>plugins</code> 则是单独的插件，可以单独引用某个插件的功能，同时有些 <code>presets</code> 中没有提供的方法也可以在这里引入。</p>
+<h3 id="webpack-配置"><a href="#webpack-配置" class="headerlink" title="webpack 配置"></a>webpack 配置</h3><ul>
+<li><code>entry</code> 配置应用的入口</li>
+<li><code>output</code> 配置应用打包后的文件名和路径</li>
+<li><code>module</code> 配置相关的 loader，用于处理非 js 文件，把这些文件都处理为可以被 js 处理的有效模块。</li>
+<li><code>plugins</code> 也就是插件，用于执行范围更广的任务，涉及到整个构建流程。包括从打包优化和压缩，一直到重新定义环境中的变量。</li>
+</ul>
+<h3 id="前端测试"><a href="#前端测试" class="headerlink" title="前端测试"></a>前端测试</h3><p>第一次比较直观的了解到断言测试，持续集成，性能测试以及 UI 测试这些测试方面相关的知识。</p>
+<p>断言测试，也就是说我们通过设置期望得到的数值，然后通过代码进行测试得到反馈。通过某些插件，我们可以通过更加语义化的输入得到更好的反馈。而单元测试也就是针对某个模块和功能进行测试，也调用了断言库作为基础。</p>
+<p>持续集成。如果没有持续集成，我们每次都要手动运行单元测试并构建项目，然后再人工监控反馈。但是进行持续集成后，我们每次提交代码，都会在远程仓库中自动执行上面的测试和构建的步骤，并且每次测试结果都有记录，大大的提高了效率。</p>
+<p>性能测试，顾名思义。可以测试在不同的方法在各种环境下的运行效率，从而可以针对性的进行优化。</p>
+<p>UI 测试，可以构建并渲染完后的页面，是否有自己预期的内容。并且还可以模拟里面的功能进行测试，看看结果是否和预期相符。</p>
 
       
     </div>
@@ -388,7 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/React/" rel="tag"># React</a>
+            <a href="/tags/每日小结/" rel="tag"># 每日小结</a>
           
         </div>
       
@@ -401,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/09/CSS盒模型/" rel="next" title="CSS盒模型">
-                <i class="fa fa-chevron-left"></i> CSS盒模型
+              <a href="/2018/01/23/20180123每日小结/" rel="next" title="20180123每日小结">
+                <i class="fa fa-chevron-left"></i> 20180123每日小结
               </a>
             
           </div>
@@ -410,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/15/JavaScript-DOM事件/" rel="prev" title="JavaScript DOM事件">
-                JavaScript DOM事件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -488,7 +498,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -501,7 +511,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -536,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">1.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天完成的事情："><span class="nav-number">1.</span> <span class="nav-text">今天完成的事情：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#明天计划的事情："><span class="nav-number">2.</span> <span class="nav-text">明天计划的事情：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题："><span class="nav-number">3.</span> <span class="nav-text">遇到的问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收获："><span class="nav-number">4.</span> <span class="nav-text">收获：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#babelrc"><span class="nav-number">4.1.</span> <span class="nav-text">.babelrc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-配置"><span class="nav-number">4.2.</span> <span class="nav-text">webpack 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端测试"><span class="nav-number">4.3.</span> <span class="nav-text">前端测试</span></a></li></ol></li></ol></div>
             
 
           </div>

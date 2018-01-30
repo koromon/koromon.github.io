@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/30/每日小结目录/">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/29/20180129每日小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -309,7 +309,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/30/每日小结目录/" itemprop="url">每日小结目录</a></h1>
+                <a class="post-title-link" href="/2018/01/29/20180129每日小结/" itemprop="url">20180129每日小结</a></h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T10:43:26+08:00">
-                2018-01-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T23:47:38+08:00">
+                2018-01-29
               </time>
             
 
@@ -361,19 +361,170 @@
       
         
           
-            <ul>
-<li><a href="https://koromon.github.io/2018/01/23/20180123-%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%BB%93/">20180123</a> <ul>
-<li>完成了 js 原型链以及继承的实现文章。</li>
-<li>简单了解了 mac 下创建脚本的方式。</li>
-</ul>
-</li>
-<li><a href="https://koromon.github.io/2018/01/29/20180129-%E6%AF%8F%E6%97%A5%E5%B0%8F%E7%BB%93/">20180129</a> <ul>
+            <h2 id="今天完成的事情："><a href="#今天完成的事情：" class="headerlink" title="今天完成的事情："></a>今天完成的事情：</h2><ul>
 <li>简单了解 <code>Babel</code> 的 <code>presets</code> 和 <code>plugins</code> 配置</li>
 <li>简单了解 webpack 配置，主要了解其中几个常用的配置：<code>entry</code>，<code>output</code>，<code>module</code>，<code>plugins</code></li>
 <li>初步了解前端测试方面的内容，了解常见的代码功能测试以及 UI 测试。</li>
 </ul>
-</li>
+<h2 id="明天计划的事情："><a href="#明天计划的事情：" class="headerlink" title="明天计划的事情："></a>明天计划的事情：</h2><ul>
+<li>了解爬虫相关概念，并使用 Node.js 进行爬虫</li>
+<li>了解一下前端通信相关的知识，服务器如何和浏览器进行交流</li>
 </ul>
+<h2 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h2><p>根据教程发现有些测试无法通过，后来通过官方文档发现是由于测试工具升级导致的，随后根据官方教程步骤解决。</p>
+<h2 id="收获："><a href="#收获：" class="headerlink" title="收获："></a>收获：</h2><h3 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a><code>.babelrc</code></h3><p>配置文件，用于把高级语法处理为目前大部分浏览器可以使用的语法。对于 <code>presets</code> 和 <code>plugins</code>，<code>presets</code> 可以看成是一堆的 <code>plugins</code> 插件预设，而 <code>plugins</code> 则是单独的插件，可以单独引用某个插件的功能，同时有些 <code>presets</code> 中没有提供的方法也可以在这里引入。</p>
+<h3 id="webpack-配置"><a href="#webpack-配置" class="headerlink" title="webpack 配置"></a>webpack 配置</h3><ul>
+<li><code>entry</code> 配置应用的入口</li>
+<li><code>output</code> 配置应用打包后的文件名和路径</li>
+<li><code>module</code> 配置相关的 loader，用于处理非 js 文件，把这些文件都处理为可以被 js 处理的有效模块。</li>
+<li><code>plugins</code> 也就是插件，用于执行范围更广的任务，涉及到整个构建流程。包括从打包优化和压缩，一直到重新定义环境中的变量。</li>
+</ul>
+<h3 id="前端测试"><a href="#前端测试" class="headerlink" title="前端测试"></a>前端测试</h3><p>第一次比较直观的了解到断言测试，持续集成，性能测试以及 UI 测试这些测试方面相关的知识。</p>
+<p>断言测试，也就是说我们通过设置期望得到的数值，然后通过代码进行测试得到反馈。通过某些插件，我们可以通过更加语义化的输入得到更好的反馈。而单元测试也就是针对某个模块和功能进行测试，也调用了断言库作为基础。</p>
+<p>持续集成。如果没有持续集成，我们每次都要手动运行单元测试并构建项目，然后再人工监控反馈。但是进行持续集成后，我们每次提交代码，都会在远程仓库中自动执行上面的测试和构建的步骤，并且每次测试结果都有记录，大大的提高了效率。</p>
+<p>性能测试，顾名思义。可以测试在不同的方法在各种环境下的运行效率，从而可以针对性的进行优化。</p>
+<p>UI 测试，可以构建并渲染完后的页面，是否有自己预期的内容。并且还可以模拟里面的功能进行测试，看看结果是否和预期相符。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/23/20180123每日小结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feng Chenming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koromon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/20180123每日小结/" itemprop="url">20180123每日小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T20:15:27+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="今天完成的事情："><a href="#今天完成的事情：" class="headerlink" title="今天完成的事情："></a>今天完成的事情：</h2><ul>
+<li>完成了 js 原型链以及继承的实现文章。</li>
+<li>简单了解了 mac 下创建脚本的方式。</li>
+</ul>
+<h2 id="明天计划的事情："><a href="#明天计划的事情：" class="headerlink" title="明天计划的事情："></a>明天计划的事情：</h2><p>学习 node 中的单元测试知识以及常见的 UI 测试工具。</p>
+<h2 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h2><ul>
+<li>对于 <code>Function</code> 和 <code>Object</code> 之间的关系有些模糊，于是谷歌搜索，并自己实际操作访问一下它们的 <code>prototype</code> 和 <code>__proto__</code> 属性，然后写了文章总结，至此对于它们之间的关系也是比较清楚了。</li>
+<li>对于某些命令要在终端行执行几次不同的命令，比较麻烦，通过搜索了解创建脚本的简单方式。</li>
+</ul>
+<h2 id="收获："><a href="#收获：" class="headerlink" title="收获："></a>收获：</h2><p>一、 熟悉了 js 原型链以及继承的实现方式。</p>
+<ul>
+<li><a href="https://koromon.github.io/2018/01/22/js%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%AE%80%E4%BB%8B/">js原型链简介</a></li>
+<li><a href="https://koromon.github.io/2018/01/23/js%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">js实现继承的几种方式</a></li>
+</ul>
+<p>二、 mac 创建简单脚本</p>
+<ol>
+<li><p>创建一个 <code>xxx.sh</code> 文件，文件内容如下（#! 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行）</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#! /bin/bash  </div><div class="line">#可以在这里输入你要在终端执行一系列的命令</div></pre></td></tr></table></figure>
+</li>
+<li><p>从终端进入刚才保存文件的目录，执行 <code>chmod +x xxx.sh</code>，这一步是为了赋予这个文件运行的权限</p>
+</li>
+<li>直接在终端执行 <code>./xx.sh</code>，<code>./</code>这个前缀告诉系统说，就在当前目录找命令。</li>
+</ol>
 
           
         
@@ -769,7 +920,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/18/pre-commit-ESLint/">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/18/pre-commit&ESLint/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -788,7 +939,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/18/pre-commit-ESLint/" itemprop="url">pre-commit&ESLint</a></h1>
+                <a class="post-title-link" href="/2018/01/18/pre-commit&ESLint/" itemprop="url">pre-commit&ESLint</a></h1>
         
 
         <div class="post-meta">
@@ -1112,7 +1263,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/15/JavaScript-DOM事件/">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/15/JavaScript DOM事件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -1131,7 +1282,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/15/JavaScript-DOM事件/" itemprop="url">JavaScript DOM事件</a></h1>
+                <a class="post-title-link" href="/2018/01/15/JavaScript DOM事件/" itemprop="url">JavaScript DOM事件</a></h1>
         
 
         <div class="post-meta">
@@ -1345,7 +1496,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/15/《React-js-小书》学习-理解-React-redux/">
+    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/15/《React.js 小书》学习 - 理解 React-redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng Chenming">
@@ -1364,7 +1515,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/15/《React-js-小书》学习-理解-React-redux/" itemprop="url">《React.js 小书》学习 - 理解 React-redux</a></h1>
+                <a class="post-title-link" href="/2018/01/15/《React.js 小书》学习 - 理解 React-redux/" itemprop="url">《React.js 小书》学习 - 理解 React-redux</a></h1>
         
 
         <div class="post-meta">
@@ -1798,171 +1949,6 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koromon.github.io/2018/01/05/常见三栏布局的实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feng Chenming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Koromon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/05/常见三栏布局的实现/" itemprop="url">常见三栏布局的实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T11:18:45+08:00">
-                2018-01-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。</p>
-</blockquote>
-<p><a href="http://js.jirengu.com/vifisavubi/1/edit?html,css,output" target="_blank" rel="external">这里使用</a>了五种方式来解决上面的问题。分别是下面几种：</p>
-<p>一、 浮动定位</p>
-<p>浮动定位兼容性好，但是设置这种布局需要注意调整 <code>html</code> 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。</p>
-<p>清除浮动有几种常见的方法</p>
-<ul>
-<li>在浮动元素的下方新增一个标签（<code>block/inline-block</code> 类型），然后该标签样式中使用 <code>clear:both</code>，因为要增加额外的元素，不推荐使用</li>
-<li>浮动元素的父元素设置 <code>overflow:auto;</code>（这个可能会产生滚动条） 或者 <code>overflow:hidden;</code>（这个会导致超出的元素隐藏）</li>
-<li><p>使用伪元素,只要给浮动元素的父元素添加相应的类名即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.clearfix:after &#123;</div><div class="line">　content: &apos;&apos;;</div><div class="line">　height: 0;</div><div class="line">　line-height: 0; /*或 overflow:hidden*/</div><div class="line">　display: block;</div><div class="line">　visibility: hidden;</div><div class="line">　clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>双伪元素，和上面的类似，但是写的属性不用那么多。推荐使用</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.clearfix:before,</div><div class="line">.clearfix:after &#123;</div><div class="line">	content: &apos;&apos;;</div><div class="line">	display: table;</div><div class="line">&#125;</div><div class="line">.clearfix:after &#123;</div><div class="line">	clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>二、 绝对定位</p>
-<p>绝对定位不需要特意调整 <code>html</code> 中的元素结构，但是同样会导致元素脱离文档流。需要注意对布局的影响。</p>
-<p>三、 Flexbox</p>
-<p>CSS3 中新增的布局样式，在目前来说，兼容性已经比较好了，尤其是移动端基本算是全部机型兼容了。Flexbox 布局很方便，要熟悉常见的属性，有助于提升开发效率。<a href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html" target="_blank" rel="external">用法可以参考这里 - 理解Flexbox：你需要知道的一切</a>。</p>
-<p>四、 table 布局</p>
-<p>兼容性很好，而且它有个特性，就是强制每行中的每列都会等高，但是我再实际开发中比较少用到这种布局。在某些情况下这种布局也是一种很好解决方案。<a href="https://segmentfault.com/a/1190000007007885" target="_blank" rel="external">table布局的简单介绍</a></p>
-<p>五、 Grid 布局</p>
-<p>Grid 作为一种新的布局方式，兼容性上还不是很好，但是它把页面整体看做一个网格，使得我们可以随意摆放元素的位置。这种布局我在开发中还没用过，不过了解一下还是不错的。<a href="https://juejin.im/entry/5a23510f6fb9a0452a3c239f" target="_blank" rel="external">Grid 布局的简单介绍</a></p>
-<p>综上所述，从兼容性和便利性的角度来说，Flexbox 是一种比较完美的布局方式。</p>
-<hr>
-<blockquote>
-<p>接下来我们改一下布局要求：实现一个三栏布局，高度不定，中间宽度自适应，左右定宽的页面布局。</p>
-</blockquote>
-<p>一、 浮动定位，此时父元素的高度只会根据中间元素的高度固定，而浮动的左右两个元素因为脱离的文档流，无法获取父元素高度。此时两边的高度无法跟随父元素。</p>
-<p>二、 绝对定位，此时三个元素都脱离文档流，父元素无法获取高度。无法实现</p>
-<p>三、 Flexbox，左右两列会随着中间的高度变化而变化，可以实现。</p>
-<p>四、 table 布局，因为 table 会强制同行的每列等高，所以可以实现。</p>
-<p>五、 Grid 布局也可以实现。</p>
-<p><a href="http://js.jirengu.com/zitiseracu/4/edit?html,css,output" target="_blank" rel="external">效果点此查看</a></p>
-<hr>
-<blockquote>
-<p>接下来我们再改一下布局要求：实现一个三栏布局，总高度固定，上下高度固定，中间自适应。</p>
-</blockquote>
-<p>一、 浮动定位，无法实现</p>
-<p>二、 绝对定位，可以实现。</p>
-<p>三、 Flexbox，可以实现。</p>
-<p>四、 table 布局，可以实现。</p>
-<p>五、 Grid 布局，可以实现。</p>
-<p><a href="http://js.jirengu.com/newimiqeyu/1/edit?html,css,output" target="_blank" rel="external">效果点此查看</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2013,7 +1999,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2026,7 +2012,7 @@ console.log(Person.__proto__ === Function.prototype); // true，因为 function 
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
