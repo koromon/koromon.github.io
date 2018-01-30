@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法  在浮动元素的下方新增一个标签（block/inline-block 类型），然后该标签样式">
+<meta name="description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法">
 <meta name="keywords" content="CSS布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常见三栏布局的实现">
 <meta property="og:url" content="https://koromon.github.io/2018/01/05/常见三栏布局的实现/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法  在浮动元素的下方新增一个标签（block/inline-block 类型），然后该标签样式">
+<meta property="og:description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T07:04:05.006Z">
+<meta property="og:updated_time" content="2018-01-30T03:40:27.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见三栏布局的实现">
-<meta name="twitter:description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法  在浮动元素的下方新增一个标签（block/inline-block 类型），然后该标签样式">
+<meta name="twitter:description" content="实现一个三栏布局，高度已知，中间宽度自适应，左右定宽的页面布局。  这里使用了五种方式来解决上面的问题。分别是下面几种： 一、 浮动定位 浮动定位兼容性好，但是设置这种布局需要注意调整 html 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。 清除浮动有几种常见的方法">
 
 
 
@@ -369,7 +369,7 @@
 <p><a href="http://js.jirengu.com/vifisavubi/1/edit?html,css,output" target="_blank" rel="external">这里使用</a>了五种方式来解决上面的问题。分别是下面几种：</p>
 <p>一、 浮动定位</p>
 <p>浮动定位兼容性好，但是设置这种布局需要注意调整 <code>html</code> 中元素的位置。同时因为设置元素浮动会导致脱离文档流，所以必要的时候需要要清除浮动。</p>
-<p>清除浮动有几种常见的方法</p>
+<p>清除浮动有几种常见的方法<br><a id="more"></a></p>
 <ul>
 <li>在浮动元素的下方新增一个标签（<code>block/inline-block</code> 类型），然后该标签样式中使用 <code>clear:both</code>，因为要增加额外的元素，不推荐使用</li>
 <li>浮动元素的父元素设置 <code>overflow:auto;</code>（这个可能会产生滚动条） 或者 <code>overflow:hidden;</code>（这个会导致超出的元素隐藏）</li>

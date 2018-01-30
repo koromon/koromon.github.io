@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。 圣杯布局建立基本框架12345678910111213141516171819202122// HTML &amp;lt;div class=&amp;quot;header&amp;quot;&amp;gt;  header&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;">
+<meta name="description" content="圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。 圣杯布局">
 <meta name="keywords" content="CSS布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS圣杯布局和双飞翼布局">
 <meta property="og:url" content="https://koromon.github.io/2018/01/08/CSS圣杯布局和双飞翼布局/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。 圣杯布局建立基本框架12345678910111213141516171819202122// HTML &amp;lt;div class=&amp;quot;header&amp;quot;&amp;gt;  header&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;">
+<meta property="og:description" content="圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。 圣杯布局">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.08.48.png">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.20.10.png">
@@ -97,10 +97,10 @@
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%887.08.21.png">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%887.11.40.png">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%888.32.22.png">
-<meta property="og:updated_time" content="2018-01-09T06:22:44.997Z">
+<meta property="og:updated_time" content="2018-01-30T03:40:54.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS圣杯布局和双飞翼布局">
-<meta name="twitter:description" content="圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。 圣杯布局建立基本框架12345678910111213141516171819202122// HTML &amp;lt;div class=&amp;quot;header&amp;quot;&amp;gt;  header&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;">
+<meta name="twitter:description" content="圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。 圣杯布局">
 <meta name="twitter:image" content="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.08.48.png">
 
 
@@ -375,7 +375,8 @@
 
       
         <p>圣杯布局和双飞翼布局都是为了解决两边定宽，中间自适应的三栏布局，也就是上篇文章中解决的第一种问题。</p>
-<h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><h3 id="建立基本框架"><a href="#建立基本框架" class="headerlink" title="建立基本框架"></a>建立基本框架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// HTML </div><div class="line">&lt;div class=&quot;header&quot;&gt;</div><div class="line">  header</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;center column&quot;&gt;contianer-center&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;left column&quot;&gt;contianer-left&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;right column&quot;&gt;contianer-right&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;footer&quot;&gt;</div><div class="line">  footer</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">// CSS 样式</div><div class="line">.container &#123;</div><div class="line">  background: red;</div><div class="line">  padding-left: 200px;</div><div class="line">  padding-right: 150px;</div><div class="line">  .column &#123;</div><div class="line">    background: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><a id="more"></a>
+<h3 id="建立基本框架"><a href="#建立基本框架" class="headerlink" title="建立基本框架"></a>建立基本框架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// HTML </div><div class="line">&lt;div class=&quot;header&quot;&gt;</div><div class="line">  header</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">  &lt;div class=&quot;center column&quot;&gt;contianer-center&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;left column&quot;&gt;contianer-left&lt;/div&gt;</div><div class="line">  &lt;div class=&quot;right column&quot;&gt;contianer-right&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;footer&quot;&gt;</div><div class="line">  footer</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">// CSS 样式</div><div class="line">.container &#123;</div><div class="line">  background: red;</div><div class="line">  padding-left: 200px;</div><div class="line">  padding-right: 150px;</div><div class="line">  .column &#123;</div><div class="line">    background: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>我们先建立一个简单的结构。从下图可以看到，中间部分两边红色的地方就是 <code>padding</code> 撑开的区域。</p>
 <p><img src="http://ouu4a4ldi.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-01-08%20%E4%B8%8B%E5%8D%885.08.48.png" alt="建立框架"></p>
 <h3 id="调整三栏的样式"><a href="#调整三栏的样式" class="headerlink" title="调整三栏的样式"></a>调整三栏的样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.center &#123;</div><div class="line">  width: 100%; // 这个宽度是相对于父元素 container 的宽度</div><div class="line">&#125;</div><div class="line">.left &#123;</div><div class="line">  width: 200px;</div><div class="line">  background: blue;</div><div class="line">&#125;</div><div class="line">.right &#123;</div><div class="line">  width: 150px;</div><div class="line">  background: yellow;</div><div class="line">&#125;</div></pre></td></tr></table></figure>

@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="基础概念prototype 我们创建的每个函数都有一个 prototype（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。  constructor 在默认情况下，所有原型对象都会自动获得一个 constru">
+<meta name="description" content="基础概念prototype 我们创建的每个函数都有一个 prototype（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。">
 <meta name="keywords" content="原型链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js原型链简介">
 <meta property="og:url" content="https://koromon.github.io/2018/01/22/js原型链简介/index.html">
 <meta property="og:site_name" content="Koromon&#39;s Blog">
-<meta property="og:description" content="基础概念prototype 我们创建的每个函数都有一个 prototype（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。  constructor 在默认情况下，所有原型对象都会自动获得一个 constru">
+<meta property="og:description" content="基础概念prototype 我们创建的每个函数都有一个 prototype（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/WX20180123-104228.png">
 <meta property="og:image" content="http://ouu4a4ldi.bkt.clouddn.com/WX20180123-142653.png">
-<meta property="og:updated_time" content="2018-01-23T07:38:39.046Z">
+<meta property="og:updated_time" content="2018-01-30T03:41:20.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js原型链简介">
-<meta name="twitter:description" content="基础概念prototype 我们创建的每个函数都有一个 prototype（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。  constructor 在默认情况下，所有原型对象都会自动获得一个 constru">
+<meta name="twitter:description" content="基础概念prototype 我们创建的每个函数都有一个 prototype（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。">
 <meta name="twitter:image" content="http://ouu4a4ldi.bkt.clouddn.com/WX20180123-104228.png">
 
 
@@ -368,10 +368,8 @@
       
         <h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h3><blockquote>
 <p>我们创建的每个函数都有一个 <code>prototype</code>（属性），这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。</p>
-<p>无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 <code>prototype</code> 属性，这个属性指向函数的<strong>原型对象</strong>。</p>
-</blockquote>
-<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><blockquote>
-<p>在默认情况下，所有原型对象都会自动获得一个 <code>constructor</code> （构造函数）属性，这个属性包含一个指向 <code>prototype</code> 属性所在的函数的指针。</p>
+<p>无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 <code>prototype</code> 属性，这个属性指向函数的<strong>原型对象</strong>。<br><a id="more"></a></p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>在默认情况下，所有原型对象都会自动获得一个 <code>constructor</code> （构造函数）属性，这个属性包含一个指向 <code>prototype</code> 属性所在的函数的指针。</p>
 <p>创建了自定义的构造函数之后，其原型对象默认只会取得 <code>constructor</code> 属性；至于其他方法，则都是从 Object 继承而来。</p>
 </blockquote>
 <h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h3><blockquote>
